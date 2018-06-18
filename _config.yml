@@ -3,20 +3,20 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: ANON.
 subtitle:
-description:
+description: Hello World.
 keywords:
-author: John Doe
+author: Zachary
 language:
-timezone:
+timezone: 
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: https://blog.zsliang.me/
 root: /
-permalink: :year/:month/:day/:title/
-permalink_defaults:
+permalink: posts/:abbrlink/
+permalink_defaults: :year/:month/:day/:title/
 
 # Directory
 source_dir: source
@@ -26,7 +26,7 @@ archive_dir: archives
 category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
-skip_render:
+skip_render: README.md
 
 # Writing
 new_post_name: ::year-:month-:day-:title.md
@@ -72,6 +72,8 @@ pagination_dir: page
 
 # Extensions
 ## Plugins: https://hexo.io/plugins/
+plugins: hexo-generate-feed
+
 ## Themes: https://hexo.io/themes/
 theme: next
 
@@ -82,3 +84,11 @@ deploy:
   repo: https://github.com/lzsdodo/blog
   branch: hexo-dev
   message: "Site updated: {{ now('YYYY-MM-DD HH:mm:ss') }})"
+
+# abbrlink config
+abbrlink:
+  alg: crc32  # 算法：crc16(default) and crc32
+  rep: hex    # 进制：dec(default) and hex
+
+sitemap:
+  path: sitemap.xml

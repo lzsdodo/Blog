@@ -1,2 +1,24 @@
-node_modules/*
+node_modules/
+themes/next/
+!themes/next/_config.yml
 
+.DS_Store
+.idea/
+*.log
+*.iml
+yarn.lock
+
+# Ignore optional external libraries
+source/lib/*
+
+# Track internal libraries & Ignore unused verdors files
+source/lib/font-awesome/less/
+source/lib/font-awesome/scss/
+!source/lib/font-awesome/*
+
+!source/lib/jquery/
+
+source/lib/ua-parser-js/*
+!source/lib/ua-parser-js/dist/
+
+!source/lib/velocity/

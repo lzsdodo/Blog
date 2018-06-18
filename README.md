@@ -23,16 +23,16 @@
 - Quick Start
 
     ```bash
-    # Create a new post
-    hexo new "New Post"
-    # Run Server (localhost:4000)
-    hexo server
-    # Generate static files
-    hexo generate
-    # Deploy to remote sites
-    hexo deploy 
-    # Clean cache files
-    hexo clean
+    hexo new "New Post"     # Create a new post
+    hexo server             # Run Server (localhost:4000)
+    hexo -p 8000 --debug
+    
+    hexo generate           # Generate static files
+    hexo deploy             # Deploy to remote sites
+    hexo clean              # Clean cache files
+
+    hexo new post <title> 
+    hexo new page tags
     ```
 
 - Plugin
@@ -42,30 +42,67 @@
     ```
 
     ```bash
-    # Git
+    # Git 自动部署
     hexo-deployer-git
-    # markdown 的渲染引擎
+    # markdown 渲染引擎
     hexo-renderer-marked
+    # 文章链接唯一化
+    hexo-abbrlink
+    # RSS
+    hexo-generator-feed
+    # 页面文章篇数
+    hexo-generator-index
+    hexo-generator-archive
+    hexo-generator-tag
+    # 文章搜索
+    hexo-generator-search
     # 站点地图
     hexo-generator-seo-friendly-sitemap
-    # Search
-    hexo-generator-search
     ```
 
-- Theme
-    - Download
-        
-        ```bash
-        # NexT
-        git clone https://github.com/theme-next/hexo-theme-next themes/next
-        ```
+## Theme
 
-    - Config
+- Download
+    
+    ```bash
+    # NexT
+    git clone https://github.com/theme-next/hexo-theme-next themes/next
+    ```
 
-        ```bash
-        vi _config.yml
-        #theme: next
-        ```
+- Basic Config: `vi /blog/themes/next/_config.yml`
+
+    ```
+    theme: next
+    scheme: Mist
+    highlight_theme: night bright
+
+    canvas_nest: true
+    ```
+
+
+- RSS: `hexo-generator-feed`
+
+    ```
+    feed:
+      type: atom
+      path: atom.xml
+      limit: 20
+    ```
+
+- 页面文章篇数
+
+    ```
+    index_generator:
+      per_page: 5
+
+    archive_generator:
+      per_page: 20
+      yearly: true
+      monthly: true
+
+    tag_generator:
+      per_page: 10
+    ```
 
 ## Structure
 

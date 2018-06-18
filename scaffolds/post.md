@@ -1,5 +1,7 @@
 ---
 title: {{ title }}
 date: {{ date }}
-tags:
+type: Default
+tags: "none"
+comments: false
 ---
