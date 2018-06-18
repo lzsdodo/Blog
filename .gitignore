@@ -1,6 +1,22 @@
-node_modules/
-themes/next/
-!themes/next/_config.yml
+node_modules/*
+
+themes/next/.*
+themes/next/bower.json
+themes/next/crowdin.yml
+themes/next/gulpfile.coffee
+themes/next/docs/
+themes/next/languages/
+themes/next/scripts/
+themes/next/test/
+themes/next/source/css/
+themes/next/source/fonts/
+themes/next/source/js/
+themes/next/source/lib/
+themes/next/source/images/
+themes/next/source/fonts/
+themes/next/layout/_scripts/
+themes/next/layout/_third-party/
+themes/next/layout/_partials/
 
 .DS_Store
 .idea/
