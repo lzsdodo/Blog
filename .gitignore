@@ -1,10 +1,13 @@
 node_modules/*
+.deploy_git/
+public/
 
 .DS_Store
 .idea/
 *.log
 *.iml
 yarn.lock
+db.json
 
 # Ignore optional external libraries
 source/lib/*

@@ -70,14 +70,9 @@
     ```
     deploy:
       type: git
-      repo: <repository url>
-      branch: [branch]
-      message: [message]
-      name: [git user]
-      email: [git email]
-      extend_dirs: [extend directory]
-      ignore_hidden: false # default is true
-      ignore_pattern: regexp  # whatever file that matches the regexp will be ignored when deploying
+      repo: https://github.com/lzsdodo/blog
+      branch: hexo-dev
+      message: "Site updated: {{now('YYYY-MM-DD HH:mm:ss') }})"
     ```
 
 - RSS: `hexo-generator-feed`
@@ -106,6 +101,13 @@
       field: post
       format: html
       limit: 10000
+    ```
+
+- Sitemap: `hexo-generator-seo-friendly-sitemap`
+
+    ```
+    sitemap:
+      path: sitemap.xml
     ```
 
 ## Theme Config
