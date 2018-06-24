@@ -36,49 +36,49 @@
     ```
 
 - Plugin
+    - [Hexo Plugin](https://hexo.io/plugins/)
 
     ```bash
     yarn add <plugin>
     ```
 
     ```bash
-    # Git 自动部署
-    hexo-deployer-git
     # markdown 渲染引擎
     hexo-renderer-marked
-    # 文章链接唯一化
-    hexo-abbrlink
-    # RSS
-    hexo-generator-feed
     # 页面文章篇数
     hexo-generator-index
     hexo-generator-archive
     hexo-generator-tag
-    # 文章搜索
-    hexo-generator-search
     # 站点地图
     hexo-generator-seo-friendly-sitemap
     ```
 
-## Theme
+## Main config
 
-- Download
-    
+- Theme: NexT
+
     ```bash
-    # NexT
     git clone https://github.com/theme-next/hexo-theme-next themes/next
     ```
 
-- Basic Config: `vi /blog/themes/next/_config.yml`
-
     ```
     theme: next
-    scheme: Mist
-    highlight_theme: night bright
-
-    canvas_nest: true
     ```
 
+- Git auto-deploy: `hexo-deployer-git`
+
+    ```
+    deploy:
+      type: git
+      repo: <repository url>
+      branch: [branch]
+      message: [message]
+      name: [git user]
+      email: [git email]
+      extend_dirs: [extend directory]
+      ignore_hidden: false # default is true
+      ignore_pattern: regexp  # whatever file that matches the regexp will be ignored when deploying
+    ```
 
 - RSS: `hexo-generator-feed`
 
@@ -88,6 +88,35 @@
       path: atom.xml
       limit: 20
     ```
+
+- 文章链接唯一化: `hexo-abbrlink` 
+
+    ```
+    permalink: posts/:abbrlink/
+    abbrlink:
+      alg: crc16
+      rep: hex
+    ```
+
+- Search: `hexo-generator-searchdb`
+
+    ```
+    search:
+      path: search.xml
+      field: post
+      format: html
+      limit: 10000
+    ```
+
+## Theme Config
+
+- Basic Config: `vi /blog/themes/next/_config.yml`
+
+    ```
+    scheme: Mist                    # Scheme 主题
+    highlight_theme: night bright   # Code Highlight 代码高亮
+    ```
+
 
 - 页面文章篇数
 
@@ -126,3 +155,4 @@
     ├── package.json
     └── _config.yml
     ```
+
