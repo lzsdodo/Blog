@@ -54,39 +54,24 @@ favicon:
 
 # Set rss to false to disable feed link.
 # Leave rss as empty to use site's feed link, and install hexo-generator-feed: `npm install hexo-generator-feed --save`.
-# Set rss to specific value if you have burned your feed already.
 rss:
 
 footer:
-  # Specify the date when the site was setup.
-  # If not defined, current year will be used.
   since: 1969
-
-  # Icon between year and copyright info.
   icon:
-    # Icon name in fontawesome, see: https://fontawesome.com/v4.7.0/icons
-    # `heart` is recommended with animation in red (#ff0000).
-    #name: user
     name: heart
-    # If you want to animate the icon, set it to true.
     animated: false
-    # Change the color of icon, using Hex Code.
-    #color: "#808080"
     color: "#CC3333"
-
-  # If not defined, will be used `author` from Hexo main config.
   copyright: Internet
   # -------------------------------------------------------------
   powered:
     # Hexo link (Powered by Hexo).
     enable: false
-    # Version info of Hexo after Hexo link (vX.X.X).
     version: false
 
   theme:
     # Theme & scheme info link (Theme - NexT.scheme).
     enable: false
-    # Version info of NexT after scheme info (vX.X.X).
     version: false
   # -------------------------------------------------------------
   # Any custom text can be defined here.
@@ -122,12 +107,13 @@ index_with_subtitle: false
 # Value after `||` delimeter is the name of FontAwesome icon. If icon (with or without delimeter) is not specified, question icon will be loaded.
 menu:
   home: / || home
-  #about: /about/ || user
-  #tags: /tags/ || tags
-  #categories: /categories/ || th
+  categories: /categories/ || th
+  tags: /tags/ || tags
   archives: /archives/ || archive
+  #rss: atom
   #schedule: /schedule/ || calendar
   #sitemap: /sitemap.xml || sitemap
+  #about: /about/ || user
   #commonweal: /404/ || heartbeat
 
 # Enable/Disable menu icons / item badges.
@@ -171,8 +157,8 @@ social:
   #Skype: skype:yourname?call|chat || skype
 
 social_icons:
-  enable: true
-  icons_only: true
+  enable: false
+  icons_only: false
   transition: false
   # Dependencies: exturl: true in Tags Settings section below.
   # To encrypt links above use https://www.base64encode.org
@@ -232,9 +218,9 @@ sidebar:
   #  - always  expand for all pages automatically
   #  - hide    expand only when click on the sidebar toggle icon.
   #  - remove  Totally remove sidebar including sidebar toggle.
-  #display: post
+  display: post
   #display: always
-  display: hide
+  #display: hide
   #display: remove
 
   # Sidebar offset from top menubar in pixels (only for Pisces | Gemini).
@@ -590,56 +576,27 @@ needmoreshare2:
 # Google Analytics
 #google_analytics:
 
-# Bing Webmaster tools verification setting
-# See: https://www.bing.com/webmaster/
-#bing_site_verification:
-
-# Yandex Webmaster tools verification setting
-# See: https://webmaster.yandex.ru/
-#yandex_site_verification:
-
-# CNZZ count
-#cnzz_siteid:
 
 # Application Insights
 # See https://azure.microsoft.com/en-us/services/application-insights/
 # application_insights:
 
-# Post widgets & FB/VK comments settings.
 # ---------------------------------------------------------------
 # Facebook SDK Support.
-# https://github.com/iissnan/hexo-theme-next/pull/410
 facebook_sdk:
   enable:       false
-  app_id:       #<app_id>
-  fb_admin:     #<user_id>
-  like_button:  #true
-  webmaster:    #true
 
 # Facebook comments plugin
-# This plugin depends on Facebook SDK.
-# If facebook_sdk.enable is false, Facebook comments plugin is unavailable.
 facebook_comments_plugin:
   enable:       false
-  num_of_posts: 10    # min posts num is 1
-  width:        100%  # default width is 550px
-  scheme:       light # default scheme is light (light or dark)
 
 # VKontakte API Support.
-# To get your AppID visit https://vk.com/editapp?act=create
 vkontakte_api:
   enable:       false
-  app_id:       #<app_id>
-  like:         true
-  comments:     true
-  num_of_posts: 10
 
 # Star rating support to each article.
-# To get your ID visit https://widgetpack.com
 rating:
   enable: false
-  id:     #<app_id>
-  color:  fc6423
 # ---------------------------------------------------------------
 
 # Show number of visitors to each article.
@@ -655,7 +612,6 @@ leancloud_visitors:
   betterPerformance: false
 
 # Another tool to show number of visitors to each article.
-# visit https://console.firebase.google.com/u/0/ to get apiKey and projectId
 # visit https://firebase.google.com/docs/firestore/ to get more information about firestore
 firestore:
   enable: false
@@ -675,50 +631,18 @@ busuanzi_count:
   post_views: true
   post_views_icon: eye
 
-
-# Tencent analytics ID
-# tencent_analytics:
-
-# Tencent MTA ID
-# tencent_mta:
-
-
-# Enable baidu push so that the blog will push the url to baidu automatically which is very helpful for SEO
-baidu_push: false
-
 # Google Calendar
-# Share your recent schedule to others via calendar page
-#
-# API Documentation:
-# https://developers.google.com/google-apps/calendar/v3/reference/events/list
 calendar:
   enable: false
-  calendar_id: <required>
-  api_key: <required>
-  orderBy: startTime
-  offsetMax: 24
-  offsetMin: 4
-  timeZone:
-  showDeleted: false
-  singleEvents: true
-  maxResults: 250
 
 # Algolia Search
-# See: https://github.com/theme-next/hexo-theme-next/blob/master/docs/ALGOLIA-SEARCH.md
-# Dependencies: https://github.com/theme-next/theme-next-algolia-instant-search
 algolia_search:
   enable: false
-  hits:
-    per_page: 10
-  labels:
-    input_placeholder: Search for Posts
-    hits_empty: "We didn't find any results for the search: ${query}"
-    hits_stats: "${hits} results found in ${time} ms"
 
 # Local search
 # Dependencies: https://github.com/theme-next/hexo-generator-searchdb
 local_search:
-  enable: false
+  enable: true
   # if auto, trigger search by changing input
   # if manual, trigger search by pressing enter key or search button
   trigger: auto
@@ -728,13 +652,8 @@ local_search:
   unescape: false
 
 # Bookmark Support
-# Dependencies: https://github.com/theme-next/theme-next-bookmark
 bookmark:
   enable: false
-  # if auto
-  #   - save the reading position when closing the page
-  #   - or clicking the bookmark-icon
-  # if manual, only save it by clicking the bookmark-icon
   save: auto
 
 
@@ -808,7 +727,7 @@ motion:
 # Please, choose only any one variant, do not need to install both.
 # For install 2.x: https://github.com/theme-next/theme-next-fancybox
 # For install 3.x: https://github.com/theme-next/theme-next-fancybox3
-fancybox: false
+fancybox: true
 
 # Added switch option for separated repo in 6.0.0.
 # Dependencies: https://github.com/theme-next/theme-next-fastclick

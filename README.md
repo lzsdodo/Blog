@@ -43,14 +43,8 @@
     ```
 
     ```bash
-    # markdown 渲染引擎
-    hexo-renderer-marked
-    # 页面文章篇数
-    hexo-generator-index
-    hexo-generator-archive
-    hexo-generator-tag
-    # 站点地图
-    hexo-generator-seo-friendly-sitemap
+    # Add spaces between CJK characters and western characters.
+    hexo-filter-auto-spacing
     ```
 
 ## Main config
@@ -75,15 +69,6 @@
       message: "Site updated: {{now('YYYY-MM-DD HH:mm:ss') }})"
     ```
 
-- RSS: `hexo-generator-feed`
-
-    ```
-    feed:
-      type: atom
-      path: atom.xml
-      limit: 20
-    ```
-
 - 文章链接唯一化: `hexo-abbrlink` 
 
     ```
@@ -91,6 +76,41 @@
     abbrlink:
       alg: crc16
       rep: hex
+    ```
+
+- markdown 渲染引擎
+    - `hexo-renderer-marked`
+
+    ```
+    marked:
+      gfm: true
+      pedantic: false
+      sanitize: false
+      tables: true
+      breaks: true
+      smartLists: true
+      smartypants: true
+    ```
+
+- 页面文章篇数
+    - `hexo-generator-index`, `hexo-generator-archive`, `hexo-generator-category`, `hexo-generator-tag`
+
+    ```
+    index_generator:
+      path: ''
+      per_page: 10
+      order_by: -date
+      
+    archive_generator:
+      per_page: 20
+      yearly: true
+      monthly: true
+
+    category_generator:
+      per_page: 10
+
+    tag_generator:
+      per_page: 10
     ```
 
 - Search: `hexo-generator-searchdb`
@@ -101,6 +121,15 @@
       field: post
       format: html
       limit: 10000
+    ```
+
+- RSS: `hexo-generator-feed`
+
+    ```
+    feed:
+      type: atom
+      path: atom.xml
+      limit: 20
     ```
 
 - Sitemap: `hexo-generator-seo-friendly-sitemap`
