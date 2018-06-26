@@ -5,6 +5,7 @@ themes/
 source/_drafts/*
 source/_posts/*
 
+Thumbs.db
 .DS_Store
 .idea/
 *.log
