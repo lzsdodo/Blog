@@ -1,4 +1,7 @@
 ---
 title: {{ title }}
-tags:
+data: {{ date  }}
+updated: {{ date  }}
+categories: "nil"
+tags: "nil"
 ---
