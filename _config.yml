@@ -129,7 +129,7 @@ addlink:
 deploy: 
   type: git
   repo: https://github.com/lzsdodo/blog
-  branch: hexo-deploy
+  branch: gh-pages
   message: "Blog updated: {{now('YYYY-MM-DD HH:mm:ss') }})"
 
 
