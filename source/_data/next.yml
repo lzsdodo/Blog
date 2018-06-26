@@ -62,18 +62,16 @@ footer:
     name: heart
     animated: false
     color: "#CC3333"
-  copyright: Internet
+  copyright: <a rel="external nofollow" href="https://en.wikipedia.org/wiki/Internet"><b>Internet</b></a>
   # -------------------------------------------------------------
   powered: # Hexo link (Powered by Hexo).
     enable: false
     version: false
-
   theme: # Theme & scheme info link (Theme - NexT.scheme).
     enable: false
     version: false
   # -------------------------------------------------------------
   # Any custom text can be defined here.
-  #custom_text: Hosted by <a target="_blank" rel="external nofollow" href="https://pages.coding.me"><b>Coding Pages</b></a>
   custom_text: Hosted by <a target="LOVE" rel="external nofollow" href="https://zsliang.me"><b>Curiosity</b></a>&emsp;|&emsp;Powered by <a href="https://hexo.io"><b>Hexo</b></a>&emsp;|&emsp;Theme — <a href="https://theme-next.org"><b>NexT</b></a>
 
 
@@ -105,7 +103,7 @@ index_with_subtitle: false
 # Value after `||` delimeter is the name of FontAwesome icon. If icon (with or without delimeter) is not specified, question icon will be loaded.
 menu:
   home: / || home
-  #categories: /categories/ || th
+  categories: /categories/ || th
   tags: /tags/ || tags
   archives: /archives/ || archive
   RSS: atom.xml || rss
@@ -141,8 +139,8 @@ site_state: true
 # Value before `||` delimeter is the target permalink.
 # Value after `||` delimeter is the name of FontAwesome icon. If icon (with or without delimeter) is not specified, globe icon will be loaded.
 social:
-  GitHub: https://github.com/lzsdodo || github
-  E-Mail: mailto:i@zsliang.me || envelope
+  #GitHub: https://github.com/yourname || github
+  #E-Mail: mailto:email@gmail.com || envelope
   #Google: https://plus.google.com/yourname || google
   #Twitter: https://twitter.com/yourname || twitter
   #Facebook: https://www.facebook.com/yourname || facebook
@@ -200,7 +198,7 @@ sidebar:
   #display: always
   display: hide
   #display: remove
-  # Enable sidebar on narrow view (only for Muse | Mist).
+  # Enable sidebar on narrow view.
   onmobile: false
   
   # Only for Pisces | Gemini
@@ -237,8 +235,8 @@ post_meta:
   item_text: true
   created_at: true
   updated_at: 
-    enabled: true
-    another_day: true
+    enabled: false
+    another_day: false
   categories: true
 
 # Post wordcount display settings

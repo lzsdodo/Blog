@@ -1,6 +1,5 @@
 # Hexo Configuration
 ## Docs: https://hexo.io/docs/configuration.html
-## Source: https://github.com/hexojs/hexo/
 
 # Site
 title: Dodo's Blog
@@ -17,9 +16,6 @@ url: https://blog.zsliang.me
 root: /
 permalink: posts/:abbrlink/
 permalink_defaults:
-abbrlink:
-  alg: crc32
-  rep: hex
 
 # Directory
 source_dir: source
@@ -33,11 +29,11 @@ skip_render: README.md
 
 # Writing
 new_post_name: title.md # File name of new posts
-default_layout: post
+default_layout: draft
 titlecase: false # Transform title into titlecase
 external_link: true # Open external links in new tab
 filename_case: 0
-render_drafts: false
+render_drafts: true
 post_asset_folder: false
 relative_link: false
 future: true
@@ -45,7 +41,7 @@ highlight:
   enable: true
   line_number: true
   auto_detect: true
-  tab_replace:
+  tab_replace: true
   
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
@@ -113,6 +109,16 @@ search:
   field: post
   format: html
   limit: 10000
+
+# AbbrLink
+abbrlink:
+  alg: crc32
+  rep: hex
+
+# AddLink
+addlink:
+  before_text: __Post link:__ 
+  after_text: 
 
 # Sitemap - hexo-generator-seo-friendly-sitemap
 #sitemap:
