@@ -115,8 +115,8 @@ search:
   limit: 10000
 
 # Sitemap - hexo-generator-seo-friendly-sitemap
-sitemap:
-  path: sitemap.xml
+#sitemap:
+#  path: sitemap.xml
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html

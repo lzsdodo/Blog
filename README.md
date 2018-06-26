@@ -42,31 +42,36 @@
     yarn add <plugin>
     ```
 
+    ```
+    yarn add hexo-deployer-git hexo-abbrlink hexo-addlink hexo-renderer-marked hexo-generator-index hexo-generator-archive hexo-generator-category hexo-generator-tag hexo-generator-searchdb 
+    hexo-filter-auto-spacing 
+    # hexo-generator-seo-friendly-sitemap hexo-pdf
+    ```
+
     ```bash
     # Add spaces between CJK characters and western characters.
     hexo-filter-auto-spacing
+    # Hexo tag for embeded pdf
+    hexo-pdf
     ```
 
-## Main config
+- Configs
+  - When we say **`hexo config`** means the hexo project config
+    - PATH: `/hexo/_config.yml`
+  - When we say **`themes config`** means the config of theme **`NexT`**. But we want to separate the config from the theme source files, we will fully override default configuration.
+    - Original PATH: `/hexo/themes/next/_config.yml`
+    - Real PATH: `/hexo/source/_data/next.yml`
 
-- Theme: NexT
+## Hexo config
 
-    ```bash
-    git clone https://github.com/theme-next/hexo-theme-next themes/next
-    ```
-
-    ```
-    theme: next
-    ```
-
-- Git auto-deploy: `hexo-deployer-git`
+- Git Auto-deploy: `hexo-deployer-git`
 
     ```
     deploy:
       type: git
       repo: https://github.com/lzsdodo/blog
       branch: hexo-dev
-      message: "Site updated: {{now('YYYY-MM-DD HH:mm:ss') }})"
+      message: "Site updated: {{now('YYYY-MM-DD HH:mm:ss')}})"
     ```
 
 - 文章链接唯一化: `hexo-abbrlink` 
@@ -74,12 +79,11 @@
     ```
     permalink: posts/:abbrlink/
     abbrlink:
-      alg: crc16
+      alg: crc32
       rep: hex
     ```
 
-- markdown 渲染引擎
-    - `hexo-renderer-marked`
+- markdown 渲染引擎: `hexo-renderer-marked`
 
     ```
     marked:
@@ -92,8 +96,7 @@
       smartypants: true
     ```
 
-- 页面文章篇数
-    - `hexo-generator-index`, `hexo-generator-archive`, `hexo-generator-category`, `hexo-generator-tag`
+- 页面文章篇数: `hexo-generator-index/archive/category/tag`
 
     ```
     index_generator:
@@ -132,6 +135,14 @@
       limit: 20
     ```
 
+- Adding current post link in hexo post page: `hexo-addlink`
+
+  ```
+  addlink:
+    before_text: hello  # text before the post link
+    after_text: bye     # text after the post link
+  ```
+
 - Sitemap: `hexo-generator-seo-friendly-sitemap`
 
     ```
@@ -141,28 +152,51 @@
 
 ## Theme Config
 
-- Basic Config: `vi /blog/themes/next/_config.yml`
+- Theme: NexT
+
+    ```bash
+    git clone https://github.com/theme-next/hexo-theme-next themes/next
+    ```
 
     ```
-    scheme: Mist                    # Scheme 主题
-    highlight_theme: night bright   # Code Highlight 代码高亮
+    # Hexo config
+    theme: next
     ```
 
 
-- 页面文章篇数
+- Configs
+  - Original config: `vi /hexo/themes/next/_config.yml`
+  - Real config: `vi /hexo/source/_data/next.yml`
 
     ```
-    index_generator:
-      per_page: 5
-
-    archive_generator:
-      per_page: 20
-      yearly: true
-      monthly: true
-
-    tag_generator:
-      per_page: 10
+    override: true
     ```
+
+- `theme-next-fancybox3`
+  
+  ```
+  cd themes/next/
+  git clone https://github.com/theme-next/theme-next-fancybox3 source/lib/fancybox
+  ```
+
+  ```
+  # Real theme config
+  fancybox: true
+  ```
+
+- `hexo-pdf`: 
+
+  ```
+  yarn add hexo-pdf
+  ```
+
+  ```
+  {% pdf ./bash_freshman.pdf %}
+  {% pdf https://drive.google.com/file/d/xxx/preview %}
+  {% pdf http://domain.com/example.pdf %}
+  ```
+
+
 
 ## Structure
 
@@ -171,6 +205,7 @@
     ```
     blog
     ├── source/
+    │   ├── _data
     │   └── _posts
     │         └── hello-world.md
     ├── scaffolds/
