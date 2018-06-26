@@ -108,7 +108,7 @@ search:
   path: search.xml
   field: post
   format: html
-  limit: 10000
+  limit: 30
 
 # AbbrLink
 abbrlink:
@@ -117,8 +117,8 @@ abbrlink:
 
 # AddLink
 addlink:
-  before_text: __Post link:__ 
-  after_text: 
+  before_text: <br \>__Author:__<b>Zachary</b><br \>__Post link__ 
+  after_text: <br \>__Copyright:__<span> All articles in this blog are licensed under <a target="_blank" rel="external nofollow" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><b>CC BY-NC-SA 4.0</b></a> unless stating additionally.</span><br \>
 
 # Sitemap - hexo-generator-seo-friendly-sitemap
 #sitemap:

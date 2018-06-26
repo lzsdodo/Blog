@@ -197,7 +197,6 @@
   ```
 
 
-
 ## Structure
 
 - Directory structure
@@ -206,6 +205,7 @@
     blog
     ├── source/
     │   ├── _data
+    │   │     └── next.yml
     │   └── _posts
     │         └── hello-world.md
     ├── scaffolds/
