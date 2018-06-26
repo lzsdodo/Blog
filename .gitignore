@@ -2,6 +2,8 @@ node_modules/*
 .deploy_git/
 public/
 themes/
+source/_posts/*
+source/_drafts/*
 
 .DS_Store
 .idea/
