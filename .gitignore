@@ -1,0 +1,8 @@
+/*
+!.gitignore
+!/source/
+
+/source/*
+!/source/_posts/
+!/source/_drafts/
+
