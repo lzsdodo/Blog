@@ -50,3 +50,4 @@ gulp.task('minify-images', function() {
 gulp.task('default', [
     'minify-html','minify-css','minify-js','minify-images'
 ]);
+

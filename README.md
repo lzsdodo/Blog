@@ -21,6 +21,7 @@
     # npm install
     hexo generate
     hexo server
+    hexo deploy
     ```
 
 - Writing
@@ -95,10 +96,31 @@
         - Original PATH: `/hexo/themes/next/_config.yml`
         - Real PATH: `/hexo/source/_data/next.yml`
 
+## Structure
+
+```bash
+hexo
+├── _config.yml
+├── gulpfile.js
+├── package.json
+├── source/
+│   ├── robots.txt
+│   ├── _data/
+│   │   ├── next.yml
+│   │   ├── _layout/
+│   │   └── _css/
+│   ├── images/
+│   └── _posts/
+├── scaffolds/
+├── node_modules/
+├── themes/
+│   └── next/
+└── public/
+```
+
 ## Hexo config
 
 - Default: `_config.yml`
-    - `hexo --config custom.yml`
 
     ```yaml
     # 文章链接唯一化: hexo-abbrlink
@@ -181,25 +203,26 @@
 
 ## Theme Config
 
-- Theme: NexT
+- Theme: `NexT`
 
     ```bash
     git clone https://github.com/theme-next/hexo-theme-next themes/next
     ```
 
-    ```
-    # Hexo config
-    theme: next
-    ```
-
-
 - Configs
-  - Original config: `vi /hexo/themes/next/_config.yml`
-  - Real config: `vi /hexo/source/_data/next.yml`
+    - Original config: `vi /hexo/themes/next/_config.yml`
 
-    ```
-    override: true
-    ```
+        ```yaml
+        # Edit on original config
+        override: true
+        ```
+
+    - Real config: `vi /hexo/source/_data/next.yml`
+
+        ```yaml
+        # Edit on real config
+        theme: next
+        ```
 
 - `theme-next-fancybox3`
   
@@ -209,7 +232,6 @@
     ```
 
     ```yaml
-    # Real theme config
     fancybox: true
     ```
 
@@ -223,43 +245,118 @@
 
 ## Optim
 
-> Compress resources with `gulp`
+- CDN
+    - Edit theme config: `source/_data/next.yml`
+    - Global: `jsdelivr.com`; CN: `cdn.bootcss.com` / `cdnjs.com`
 
-- Install 
+    ```yaml
+    vendors:
+      _internal: lib
+      jquery: //cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js
+      fancybox: //cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.pack.js
+      fancybox_css: //cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.min.css
+      fastclick: //cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js
+      velocity: //cdn.jsdelivr.net/npm/velocity-animate@1.5.1/velocity.min.js
+      velocity_ui: //cdn.jsdelivr.net/npm/velocity-ui-pack@1.2.2/velocity.ui.min.js
+      ua_parser: //cdn.jsdelivr.net/ua-parser.js/0.7.10/ua-parser.min.js
+      fontawesome: //cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css
+      pace: //cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js
+      pace_css: //cdn.jsdelivr.net/npm/pace-js@1.0.2/templates/pace-theme-minimal.tmpl.css
+      canvas_nest: //cdn.jsdelivr.net/npm/canvas-nest.js@1.0.0/canvas-nest.min.js
+      #...
+    ```
+
+- Compress resources files with `gulp`
+
+    - Install 
+
+        ```bash
+        # Install
+        yarn global add gulp-cli
+        yarn add gulp-clean-css gulp-uglify gulp-htmlmin gulp-htmlclean gulp-imagemin gulp
+        ```
+
+    - Config: `gulpfile.js`
+
+        ```js
+        /* gulpfile.js on hexo root */
+
+        // Add require
+        var gulp      = require('gulp');
+        var minifycss = require('gulp-clean-css');
+        var uglify    = require('gulp-uglify');
+        var htmlmin   = require('gulp-htmlmin');
+        var htmlclean = require('gulp-htmlclean');
+        var imagemin  = require('gulp-imagemin');
+
+        // Compress public/**/*.html
+        gulp.task('minify-html', function() {
+          return gulp.src('./public/**/*.html')
+            .pipe(htmlclean())
+            .pipe(htmlmin({
+                 removeComments: true,
+                 minifyJS: true,
+                 minifyCSS: true,
+                 minifyURLs: true,
+            }))
+            .pipe(gulp.dest('./public'))
+        });
+
+        // Compress public/**/*.css
+        gulp.task('minify-css', function() {
+            return gulp.src('./public/**/*.css')
+                .pipe(minifycss())
+                .pipe(gulp.dest('./public'));
+        });
+
+        // Compress public/**/*.js
+        gulp.task('minify-js', function() {
+            return gulp.src('./public/**/*.js')
+                .pipe(uglify())
+                .pipe(gulp.dest('./public'));
+        });
+
+        gulp.task('minify-images', function() {
+            return gulp.src('./public/images/**/*.*')
+                .pipe(imagemin(
+                [imagemin.gifsicle({'optimizationLevel': 3}),
+                imagemin.jpegtran({'progressive': true}),
+                imagemin.optipng({'optimizationLevel': 7}),
+                imagemin.svgo()],
+                {'verbose': true}))
+                .pipe(gulp.dest('./public/images'))
+        });
+
+        // Execute gulp task: gulp
+        gulp.task('default', [
+            'minify-html','minify-css','minify-js','minify-images'
+        ]);
+        ```
+
+    - Compress before hexo deploy
+    
+        ```bash
+        hexo clean && hexo generate
+        gulp
+        hexo server # hexo deploy
+        ```
+
+- Simplify hexo command
+    - Add scripts to `package.json` and use `yarn run`
+
+    ```json
+    {
+      //...
+      "scripts": {
+        "test": "hexo clean && hexo g && gulp && hexo s",
+        "publish": "hexo clean && hexo g && gulp && hexo d"
+      }
+      //...
+    }
+    ```
 
     ```bash
-    yarn global add gulp-cli
-    yarn add gulp-clean-css gulp-uglify gulp-htmlmin gulp-htmlclean gulp-imagemin gulp
-    ```
-
-- Config: `gulpfile.js`
-
-    ```js
-
-    ```
-
-## Structure
-
-- Directory structure
-    
-    ```
-    blog
-    ├── source/
-    │   ├── _data
-    │   │     └── next.yml
-    │   └── _posts
-    │         └── hello-world.md
-    ├── scaffolds/
-    │   ├── draft.md
-    │   ├── page.md
-    │   └── post.md
-    ├── public/
-    ├── node_modules/
-    ├── themes/
-    │   └── landscape/
-    │         └── _config.yml
-    │
-    ├── package.json
-    └── _config.yml
+    yarn run test
+    yarn run publish
     ```
 
