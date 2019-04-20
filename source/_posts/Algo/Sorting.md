@@ -2,7 +2,9 @@
 abbrlink: b59a5e11
 title: Sorting Algorithm
 categories: Algo
-tags: [Algo, Sorting]
+tags: 
+  - Algo
+  - Sorting
 date: 2019-01-01 00:00:00
 ---
 
