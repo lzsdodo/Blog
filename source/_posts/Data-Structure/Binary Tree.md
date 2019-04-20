@@ -1,9 +1,13 @@
 ---
+abbrlink: e0e2589a
 title: Binary Tree
 categories: Data Structure
 tags: [Data Structure, Tree]
-date: {{ 2019-01-01 00:00:00 }}
-updated: {{ 2019-04-19 00:00:00 }}
+date: 2019-01-01 00:00:00
+---
+
+[TOC]
+
 ---
 
 ## Definition
@@ -44,7 +48,6 @@ updated: {{ 2019-04-19 00:00:00 }}
     }
     ```
 
-
     ```java
     /* Inorder Traversal - Recursive Solution*/
     public void inorder(TreeNode root, ArrayList<Integer> result) {
@@ -54,8 +57,8 @@ updated: {{ 2019-04-19 00:00:00 }}
         inorder(root.right, result);
     }
     ```
-  
-    ```java  
+
+    ```java
     /* Postorder Traversal - Recursive Solution*/
     public void postorder(TreeNode root, ArrayList<Integer> result) {
         if (root != null) return null;
@@ -86,13 +89,14 @@ updated: {{ 2019-04-19 00:00:00 }}
         }
         return answer;
     }
+    ```
 
-    /*
-    // Inorder: Left -> Root -> Right (Stack, FILO)
+    ```java
+    // Inorder
+    // Left -> Root -> Right (Stack, FILO)
     if (node.right != null) stack.push(node.right);          
     ret.add(node.val);  
     if (node.left != null)  stack.push(node.left);           
-    */
     ```
 
 - DaC perspective
@@ -124,5 +128,4 @@ updated: {{ 2019-04-19 00:00:00 }}
 
 - To be cautious
     - When the depth of tree is too large, we might suffer from stack overflow problem
-
 

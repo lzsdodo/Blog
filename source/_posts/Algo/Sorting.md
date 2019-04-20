@@ -1,10 +1,16 @@
 ---
+abbrlink: b59a5e11
 title: Sorting Algorithm
 categories: Algo
 tags: [Algo, Sorting]
-date: {{ 2019-01-01 00:00:00 }}
-updated: {{ 2019-04-18 00:00:00 }}
+date: 2019-01-01 00:00:00
 ---
+
+[TOC]
+
+---
+
+> Sorting Algorithm
 
 |  Sorting Algo  | In-place | Stability | Time Complexity (AVG/BEST/WORST) | Space Complexity |
 |:--------------:|:--------:|:---------:|:--------------------------------:|:----------------:|

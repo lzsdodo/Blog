@@ -1,3 +1,15 @@
+---
+abbrlink: 
+title: GRE Reading
+categories: nil
+tags: [GRE]
+date: 2016-01-01 00:00:00
+---
+
+[TOC]
+
+---
+
 ## 一、GRE 阅读学习方法
 
 > **文章结构**

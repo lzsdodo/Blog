@@ -1,3 +1,16 @@
+---
+abbrlink: 
+title: {{ HTML }}
+categories: nil
+tags: [HTML]
+date: {{ 2016-01-01 00:00:00 }}
+updated: {{ date }}
+---
+
+[TOC]
+
+---
+
 - 学习途径：慕课网《HTML+CSS基础课程》    
 - Summarized by Zachary 
 

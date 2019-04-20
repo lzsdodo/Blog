@@ -1,3 +1,16 @@
+---
+abbrlink: 
+title: {{ Java }}
+categories: nil
+tags: [Java]
+date: {{ 2016-01-01 00:00:00 }}
+updated: {{ date }}
+---
+
+[TOC]
+
+---
+
 - 学习途径：慕课网《Java 入门》	    
 - Summarized by Zachary
 

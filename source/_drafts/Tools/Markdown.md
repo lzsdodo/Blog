@@ -1,4 +1,17 @@
+---
+abbrlink: 
+title: Markdown
+categories: Tools
+tags: [Markdown]
+date: 2015-01-01 00:00:00
+---
+
+[TOC]
+
+---
+
 ## Markdown 是什么？ 
+
 相信大家一定用过 Office，并且曾经花大量时间对格式反复调整。那么这些时间是否可以节省下来呢？本文要介绍的 **Markdown**，就是为了减少大家花费在排版上时间，专注于内容本身而设计产生的一种***标记语言***。      
 
 ![Markdown](http://upload-images.jianshu.io/upload_images/80247-6fe66bf1cbbfc4f1.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)

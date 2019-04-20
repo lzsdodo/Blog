@@ -1,9 +1,13 @@
 ---
+abbrlink: a2b62ad8
 title: Keynote Tutorial
 categories: Ability
 tags: [Keynote]
-date: {{ date }}
-updated: {{ date }}
+date: 2014-01-01 00:00:00
+---
+
+[TOC]
+
 ---
 
 > Keynote Tutorial | 许岑  

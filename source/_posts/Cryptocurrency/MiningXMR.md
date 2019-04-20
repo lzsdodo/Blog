@@ -1,10 +1,13 @@
 ---
+abbrlink: b8827cf7
 title: Mining XMR
 categories: Cryptocurrency
 tags: [XMR, Mining]
-abbrlink: b8827cf7
 date: 2018-06-20 00:00:00
-updated: 2018-06-20 00:00:00
+---
+
+[TOC]
+
 ---
 
 > **Mining XMR**

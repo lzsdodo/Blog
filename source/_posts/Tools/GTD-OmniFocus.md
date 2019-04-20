@@ -1,12 +1,16 @@
 ---
+abbrlink: 4372d2e6
 title: GTD and OmniFocus
 categories: Tools
 tags: [GTD, OmniFocus, Efficiency]
-abbrlink: 4372d2e6
 date: 2015-10-22 00:00:00
-updated: 2015-10-22 00:00:00
 ---
 
+[TOC]
+
+---
+
+> GTD and OmniFocus    
 > *我只是大自然的搬运工*。 
 
 - Summarize by Zachary

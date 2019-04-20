@@ -1,3 +1,16 @@
+---
+abbrlink: 
+title: {{ WordPress }}
+categories: nil
+tags: [WordPress]
+date: {{ 2015-01-01 00:00:00 }}
+updated: {{ date }}
+---
+
+[TOC]
+
+---
+
 - Summarized by Zachary 
 - Continuous Updates 
 
