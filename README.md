@@ -82,6 +82,7 @@
       "hexo-renderer-marked": "^0.3.2",
       "hexo-renderer-stylus": "^0.3.3",
       "hexo-server": "^0.2.0"
+      "hexo-toc": "^1.1.0"
     }
     ```
 

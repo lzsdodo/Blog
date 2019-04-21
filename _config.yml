@@ -124,6 +124,17 @@ addlink:
   before_text: <br \>__Author:&nbsp;Zachary__<br \>__Post link:&nbsp;__
   after_text: <br \>__Copyright:&nbsp;__All articles in this blog are licensed under <a target="_blank" rel="external nofollow" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><b>CC BY-NC-SA 4.0</b></a> unless stating additionally.<br \>
 
+# Toc
+toc:
+  maxdepth: 3
+  class: toc
+  slugify: transliteration
+  decodeEntities: false
+  anchor:
+    position: after
+    symbol: '#'
+    style: header-anchor
+
 # Sitemap - hexo-generator-seo-friendly-sitemap
 #sitemap:
 #  path: sitemap.xml
