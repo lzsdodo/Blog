@@ -9,6 +9,7 @@ date: 2019-01-01 00:00:00
 ---
 
 [TOC]
+<!-- toc -->
 
 ---
 
@@ -18,7 +19,7 @@ date: 2019-01-01 00:00:00
 
 ---
 
-## Analyse
+## Complexity Analyse
 
 - Time
     - Avg: `O(logn)`
@@ -189,7 +190,7 @@ date: 2019-01-01 00:00:00
     }
     ```
 
-## Skip List
+## Skip List - Support Binary Search for LinkedList
 
 > Reform linked list in order to support binary search, which is **skip list**. (跳表)
 > It's a outstanding dynamic data structure. (Sometime Red-black tree can replaced by skip list)
@@ -227,12 +228,12 @@ date: 2019-01-01 00:00:00
     - 跳表使用空间换时间的设计思路，通过构建多级索引来提高查询的效率，实现了基于链表的 "二分查找"。
     - 虽然跳表的代码实现并不简单，但是作为一种动态数据结构，比起红黑树来说，实现要简单多了。
 
-## View
+## Point of view
 
-- 凡是用二分查找能解决的，绝大部分我们更倾向于用散列表或者二叉查找树。
-- 二分查找更适合用在 "近似" 查找问题。
+- A problem which can be solved by binary search, we usually prefer to solve by **hash table** or **binary search tree**. 凡是用二分查找能解决的，绝大部分我们更倾向于用 HashTable 或者 BST。
+- Binary search is more useful in searching **vague** value problem. 二分查找更适合用在 "近似" 查找问题。
 
-## Question
+## Case
 
 - Q1: 假设我们有 1000 万个整数数据，每个数据占 8 个字节，如何设计数据结构和算法，快速判断某个整数是否出现在这 1000 万数据中？我们希望这个功能不要占用太多的内存空间，最多不要超过 100MB，你会怎么做呢？
     - Answer

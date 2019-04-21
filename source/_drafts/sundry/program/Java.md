@@ -1,13 +1,13 @@
 ---
 abbrlink: 
-title: {{ Java }}
+title: Java
 categories: nil
 tags: [Java]
-date: {{ 2016-01-01 00:00:00 }}
-updated: {{ date }}
+date: 2016-01-01 00:00:00
 ---
 
 [TOC]
+<!-- toc -->
 
 ---
 

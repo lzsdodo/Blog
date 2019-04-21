@@ -1,13 +1,13 @@
 ---
 abbrlink: 
-title: {{ CSS }}
+title: CSS
 categories: nil
 tags: [CSS]
-date: {{ 2016-01-01 00:00:00 }}
-updated: {{ date }}
+date: 2016-01-01 00:00:00
 ---
 
 [TOC]
+<!-- toc -->
 
 ---
 

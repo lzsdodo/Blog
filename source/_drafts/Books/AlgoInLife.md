@@ -1,3 +1,16 @@
+---
+abbrlink: 
+title: Algorithm in life
+categories: Algo
+tags: [Algo]
+date: 2019-01-01 00:00:00
+---
+
+[TOC]
+<!-- toc -->
+
+---
+
 # Algorithm in life 生活里的算法
 
 ## 37%

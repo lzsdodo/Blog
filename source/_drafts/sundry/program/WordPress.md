@@ -1,13 +1,13 @@
 ---
 abbrlink: 
-title: {{ WordPress }}
+title: WordPress
 categories: nil
 tags: [WordPress]
-date: {{ 2015-01-01 00:00:00 }}
-updated: {{ date }}
+date: 2015-01-01 00:00:00
 ---
 
 [TOC]
+<!-- toc -->
 
 ---
 
