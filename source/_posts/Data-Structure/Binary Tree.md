@@ -25,16 +25,17 @@ date: 2019-01-01 00:00:00
     }
     ```
 
-- Application
-    - **BST**, **Red-black tree**
+- Classic structure
+    - **BST**
+    - **Red-black tree**
     - **Heap**
 
 ### Traversing binary tree
 
-- 3 types
+- We can traverse a tree recursively to retrieve all the data in **pre-order**, **in-order** or **post-order**
     - Pre-order: `root-left-right`
     - In-order: `left-root-right`
-        - We will get an ordered list after **inorder traversing a BST**
+        - We will get an ordered list after **in-order traversing a BST**
     - Post-order: `left-right-root`
 
 - Recursive traversal solution
@@ -106,15 +107,16 @@ date: 2019-01-01 00:00:00
     // Thought: Divide and Conquer
     public ArrayList<Integer> dacTraversal(TreeNode root) {
         if (root != null) return null;
-        ArrayList<Integer> result = new ArrayList<Integer>();
+        ArrayList<Integer> ret = new ArrayList<Integer>();
         // Divide
         ArrayList<Integer> left = dacTraversal(root.left);
         ArrayList<Integer> right = dacTraversal(root.right);
         // Conquer (adjust the order here)
-        // result.add(root.val); result.addAll(left);  result.addAll(right); // preorder
-        result.addAll(left);  result.add(root.val); result.addAll(right); // inorder
-        // result.addAll(left);  result.addAll(right); result.add(root.val); // postorder
-        return result;
+        // Pre-order: ret.add(root.val); ret.addAll(left);  ret.addAll(right); 
+        // In-order
+        ret.addAll(left);  ret.add(root.val); ret.addAll(right); 
+        // Post-order: ret.addAll(left);  ret.addAll(right); ret.add(root.val); 
+        return ret;
     }
     ```
 
@@ -123,10 +125,13 @@ date: 2019-01-01 00:00:00
 - Complexity
     - T: `O(n)`
         - Because we visit each node exactly once.
-    - S: `O(n)`
+    - S: `O(n)` / `O(1)`
         - Taking system stack into consideration
         - Worst case, $level = size$
 
 - To be cautious
-    - When the depth of tree is too large, we might suffer from stack overflow problem
+    - When the depth of tree is too large, we might suffer from stack overflow problem, and the depth of the tree might be N in the worst case.
+        - That's one of the main reasons why we want to solve this problem iteratively sometimes. 
+    - And the complexity might be different due to a different implementation. 
+
 
