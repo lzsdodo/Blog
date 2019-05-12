@@ -1,8 +1,10 @@
 ---
-abbrlink: 
+abbrlink: 491f7c5d
 title: Hash Table
 categories: Data Structure
-tags: [Data Structure, HashTable]
+tags:
+  - Data Structure
+  - HashTable
 date: 2019-01-01 00:00:00
 ---
 

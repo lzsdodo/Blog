@@ -2,7 +2,9 @@
 abbrlink: e0e2589a
 title: Binary Tree
 categories: Data Structure
-tags: [Data Structure, Tree]
+tags:
+  - Data Structure
+  - Tree
 date: 2019-01-01 00:00:00
 ---
 
