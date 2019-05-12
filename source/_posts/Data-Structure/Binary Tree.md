@@ -134,4 +134,74 @@ date: 2019-01-01 00:00:00
         - That's one of the main reasons why we want to solve this problem iteratively sometimes. 
     - And the complexity might be different due to a different implementation. 
 
+---
 
+### Construct Binary Tree 
+
+- From Inorder and Preorder Traversal
+
+    ```
+    preorder: [root, [left-subtree], [right-subtree]]
+    inorder:  [[left-subtree], root, [right-subtree]]
+    ```
+
+    ```java
+    public TreeNode buildTree(int[] preorder, int[] inorder) {
+        return buildTree(preorder, inorder, 0, inorder.length - 1, 0);
+    }
+    
+    private TreeNode buildTree(int[] preorder, int[] inorder, 
+                               int iS, int iE, int pS) {
+        if(iS > iE)  return null;
+        if(iS == iE) return new TreeNode(inorder[iS]);
+        
+        // This part can be optim by using HashMap
+        int iRoot = iS;
+        for(int i = iS; i <= iE; i++) {
+            if(inorder[i] == preorder[pS]) {
+                iRoot = i;
+                break;
+            }
+        }
+        
+        TreeNode root = new TreeNode(inorder[iRoot]);
+        root.left = buildTree(preorder, inorder, iS, iRoot - 1, pS + 1);
+        root.right = buildTree(preorder, inorder, iRoot + 1, iE, pS + (iRoot - iS) + 1);
+        
+        return root;
+    }
+    ```
+
+- From Inorder and Postorder Traversal
+
+    ```
+    postorder: [[left-subtree], [right-subtree], root]
+    inorder:   [[left-subtree], root, [right-subtree]]
+    ```
+
+    ```java
+    public TreeNode buildTree(int[] inorder, int[] postorder) {
+        return buildTree(inorder, postorder, 0, inorder.length - 1, postorder.length - 1);
+    }
+    
+    private TreeNode buildTree(int[] inorder, int[] postorder, 
+                               int iS, int iE, int pE) {
+        if(iS > iE)  return null;
+        if(iS == iE) return new TreeNode(inorder[iS]);
+        
+        // This part can be optim by using HashMap
+        int iRoot = iS;
+        for(int i = iS; i <= iE; i++) {
+            if(inorder[i] == postorder[pE]) {
+                iRoot = i;
+                break;
+            }
+        }
+        
+        TreeNode root = new TreeNode(inorder[iRoot]);
+        root.left = buildTree(inorder, postorder, iS, iRoot - 1, pE - (iE - iRoot) - 1);
+        root.right = buildTree(inorder, postorder, iRoot + 1, iE, pE - 1);
+        
+        return root;
+    }
+    ```

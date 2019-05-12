@@ -190,6 +190,10 @@ date: 2019-01-01 00:00:00
     }
     ```
 
+- Attention
+    - Duplicates
+    - Out of range: `target < nums[0]` / `target > nums[nums.length - 1]`
+
 ## Skip List - Support Binary Search for LinkedList
 
 > Reform linked list in order to support binary search, which is **skip list**. (跳表)
@@ -255,3 +259,5 @@ date: 2019-01-01 00:00:00
 
 - [数据结构与算法之美 15-17](https://time.geekbang.org/column/intro/126)
 - [Leetcode Binary Search 知识点总结](https://blog.csdn.net/tinkle181129/article/details/80037111)
+- [LC-034 Find First and Last Position of Element in Sorted Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/)
+- [LC-035 Search Insert Position](https://leetcode.com/problems/search-insert-position/)
