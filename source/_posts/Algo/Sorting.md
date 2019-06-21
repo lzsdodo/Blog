@@ -2,7 +2,7 @@
 abbrlink: b59a5e11
 title: Sorting Algorithm
 categories: Algo
-tags: 
+tags:
   - Algo
   - Sorting
 date: 2019-01-01 00:00:00
@@ -55,7 +55,7 @@ date: 2019-01-01 00:00:00
 
     ```
     Q: 已知有数组 [a1, a2, ..., an]，求数组特定的一个排序组合
-    A: 
+    A:
         组合数：n!
         断言：ai > aj，可排除一半的情况 => n!/2
         若比较 k 次能得到该特定的排序，求 k。
@@ -106,7 +106,7 @@ public static int[] insertionSort(int[] arr) {
     for (int i = 1; i < arr.length; i++) {
         int val = arr[i];
         int j = i - 1;
-        
+
         // Find seout where to insert
         for (; j >= 0; j--) {
             if (val < arr[j]) {
@@ -203,7 +203,7 @@ public static void mergeArr(int[] arr, int low, int mid, int high) {
     }
 }
 ```
-  
+
 ### Quick Sort 快速排序
 
 > Divide and Conquer
@@ -212,7 +212,7 @@ public static void mergeArr(int[] arr, int low, int mid, int high) {
 - Features
     1. In place sort => space: O(1)
     2. Not-Stability
-    3. Time-Avg: O(nlogn), 
+    3. Time-Avg: O(nlogn),
         - Worst: O(n^2) depending on the `pivot` value
 
 - How to optimzie **quick sort**
@@ -231,37 +231,28 @@ public static void quickSort(int[] arr) {
     quickSort(arr, 0, arr.length - 1);
 }
 
-public static void quickSort(int[] arr, int low, int high) {
-    if (low < high) {
-        int divIdx = partition(arr, low, high);
-        quickSort(arr, low, divIdx - 1);
-        quickSort(arr, divIdx + 1, high);
-    }
+public static void quickSort(int[] arr, int start, int end) {
+    if (start >= end) return;
+    
+    int divIndex = partition(arr, start, end);
+    quickSort(arr, start, divIndex - 1);
+    quickSort(arr, divIndex + 1, end);
 }
 ```
 
 ```java
-public static int partition(int[] arr, int low, int high) {
-    int pivot  = arr[high]; // Find pivot
-    int divIdx = low;       // Divide index
+public static int partition(int[] arr, int start, int end) {
+    int pivot    = arr[end]; // Find pivot
+    int divIndex = start;    // Divide index
 
-    for (int i = low; i < high; i++) {
+    for (int i = start; i < end; i++) {
         if (arr[i] < pivot) {
-            swap(arr, divIdx++, i);
+            swap(arr, divIndex, i);
+            divIndex++;
         }
     }
-    swap(arr, divIdx, high);
-    return divIdx;
-}
-
-private static int findPivot(int[] arr, int low, int high) {
-    int nMid = arr[low + ((high - low) >> 1)];
-    int[] num = new int[]{arr[low], nMid, arr[high]}; 
-    // 3 point median
-    if (num[0] > num[1]) swap(num, 0, 1);
-    if (num[1] > num[2]) swap(num, 1, 2);
-    if (num[0] > num[1]) swap(num, 0, 1);
-    return num[1];
+    swap(arr, divIndex, end);
+    return divIndex;
 }
 
 private static void swap(int[] arr, int i, int j) {
@@ -271,7 +262,92 @@ private static void swap(int[] arr, int i, int j) {
     arr[j] = temp;
 }
 ```
-    
+
+```java
+private static int findPivot(int[] arr, int low, int high) {
+    int nMid = arr[low + ((high - low) >> 1)];
+    int[] num = new int[]{arr[low], nMid, arr[high]};
+    // 3 point median
+    if (num[0] > num[1]) swap(num, 0, 1);
+    if (num[1] > num[2]) swap(num, 1, 2);
+    if (num[0] > num[1]) swap(num, 0, 1);
+    return num[1];
+}
+```
+
+- Typical problem
+    - Find kth largest element
+
+        ```java
+        public int kthLargestElement(int n, int[] nums) {
+            return quickSelect(nums, 0, nums.length - 1, nums.length - n);
+        }
+
+        private int quickSelect(int[] nums, int start, int end, int k) {
+            if (start == end) return nums[k];
+
+            // choose pivot
+            int pivot = nums[start + (end - start) / 2];
+
+            int left = start, right = end;
+            while (left <= right) {
+                while (left <= right && nums[left] < pivot) {
+                    left++;
+                }
+                while (left <= right && nums[right] > pivot) {
+                    right--;
+                }
+                if (left <= right) {
+                    swap(nums, left, right);
+                    left++;
+                    right--;
+                }
+            }
+
+            if (k <= right) {
+                return quickSelect(nums, start, right, k);
+            } else {
+                return quickSelect(nums, left, end, k);
+            }
+        }
+        ```
+
+    - Rainbow sort
+
+        ```java
+           public void sortColors2(int[] colors, int k) {
+                if (colors == null || colors.length == 0) return;
+                rainbowSort(colors, 0, colors.length - 1, 1, k);
+            }
+
+            private void rainbowSort(int[] colors, int start, int end, 
+                                     int colorFrom, int colorTo) {
+
+                if (colorFrom == colorTo) return;
+                if (start >= end) return;
+
+                int colorMid = (colorFrom + colorTo) / 2; // like pivot
+                int left = start, right = end;
+                while (left <= right) {
+                    while (left <= right && colors[left] <= colorMid) {
+                        left++;
+                    }
+                    while (left <= right && colors[right] > colorMid) {
+                        right--;
+                    }
+                    if (left <= right) {
+                        swap(colors, left, right);
+                        left++;
+                        right--;
+                    }
+                }
+                // Attention to the bound, left side include colorMid
+                rainbowSort(colors, start, right, colorFrom, colorMid);
+                rainbowSort(colors, left, end, colorMid + 1, colorTo);
+            }
+        ```
+
+
 ### Bucket Sort
 
 - Analysis
@@ -311,7 +387,7 @@ Count: 0  2  2  0  1  1  0  1  0  0
 Index: 0  1  2  3  4  5  6  7  8  9
 Count: 0  2  4  4  5  6  6  7  7  7
 
-3) Output each object from the input sequence followed by 
+3) Output each object from the input sequence followed by
   decreasing its count by 1.
 Process the input data: [1, 4, 1, 2, 7, 5, 2].
 Index: 0  1  2  3  4  5  6  7  8  9
@@ -326,9 +402,9 @@ Index: 0  1  2  3  4   5  6
 Data:  -  1  -  -  *4  -  -
 // [1, 4, ->1, 2, 7, 5, 2]
 Index: 0  1   2  3  4  5  6
-Count: 0  1-1 4  4  4  6  6  7  7  7    
+Count: 0  1-1 4  4  4  6  6  7  7  7
 Data:  *1 1   -  -  4  -  -
-// ...  
+// ...
 ```
 
 ```java
@@ -345,7 +421,7 @@ public void countingSort(int[] a, int n) {
   }
 
   // 申请一个计数数组 c，下标大小 [0,max]
-  int[] c = new int[max + 1]; 
+  int[] c = new int[max + 1];
   for (int i = 0; i <= max; ++i) {
     c[i] = 0;
   }
@@ -378,7 +454,7 @@ public void countingSort(int[] a, int n) {
 
 ### Radix Sort
 
-- ![Radix Sort](http://7xqccv.com1.z0.glb.clouddn.com//18-6-21/95335203.jpg)
+- ![Radix Sort](https://img.zsliang.me/cs/algo/sorting/radix-sort.gif)
 
 - Analysis
     - 基数排序对要排序的数据是有要求的，需要可以分割出独立的 "位" 来比较，而且位之间有递进的关系，如果 a 数据的高位比 b 数据大，那剩下的低位就不用比较了。
@@ -389,7 +465,7 @@ public void countingSort(int[] a, int n) {
         - 如何根据年龄给 100 万用户排序？(Like sorting 1 million phone number)
     - Answer
         - Make it all the username or uid the same length
-            - (ban, candy, john, ...) => (ban00, candy, john0) 
+            - (ban, candy, john, ...) => (ban00, candy, john0)
             - '0' < any letter in ASCII value
         - Radix sort (Assume the size of username or uid is smaller than 20)
             - Time complexity is similar to O(n)
@@ -416,7 +492,7 @@ public void countingSort(int[] a, int n) {
         - Like $n = 100$, $k = 1000$, $c = 200$
         - So for a small size of data, algorithm with `O(n^2)` maybe a better choice
     - When the capacity is small, like **1k, 2k**, ... we can choose **merge sort**
-    
+
 - Case
     - Java 1.8
         - [0, 47]: **Selection sort**
