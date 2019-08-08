@@ -54,20 +54,20 @@ date: 2019-01-01 00:00:00
 - Iteration
 
     ```java
-    public static int bsearch(int[] arr, int data) {
-        return bsearch(arr, 0, arr.length-1, data)
+    public static int bsearch(int[] nums, int target) {
+        return bsearch(nums, 0, nums.length-1, target)
     }
 
-    public static int bsearch(int[] arr, int start, int end, int data){
-        int low = start, high = end;
+    public static int bsearch(int[] nums, int start, int end, int target){
+        int left = start, right = end;
 
-        while (low <= high) {
-            int mid = low + (high - low) / 2;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
 
-            if (arr[mid] < data) {
-                low  = mid + 1;
-            } else if (arr[mid] > data) {
-                high = mid - 1;
+            if (nums[mid] < target) {
+                left  = mid + 1;
+            } else if (nums[mid] > target) {
+                right = mid - 1;
             } else {
                 return mid;
             }
@@ -79,7 +79,7 @@ date: 2019-01-01 00:00:00
 - Recursion
 
     ```java
-    public static int bsearch(int[] arr, int start, int end, int data){
+    public static int bsearch(int[] nums, int start, int end, int target){
         if (start > end) return -1;
 
         int mid = start + (end - start) / 2;
@@ -98,93 +98,62 @@ date: 2019-01-01 00:00:00
 
 ## Variants
 
-1. Find the first target
+1. Find the **first target / last target**
 
     ```java
-    public static int findFirstTarget(int[] arr, int start, int end, int data) {
-        int low = start, high = end;
+    public static int findFirstTarget(int[] nums, int start, int end, int target) {
+        int left = start, right = end;
 
-        while (low <= high) {
-            int mid = low + ((high - low) >> 1);
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
 
-            if (arr[mid] > data) {
-                high = mid - 1;
-            } else if (arr[mid] < data) {
-                low  = mid + 1;
+            if (nums[mid] > target) {
+                right = mid - 1;
+            } else if (nums[mid] < target) {
+                left  = mid + 1;
             } else {
+                right = mid - 1;
                 // Equal, first of arr || first of repeated target
-                if ((mid == start) || (arr[mid - 1] != data))
+                if ((mid == start) || (nums[mid - 1] != target))
                     return mid;
-                high = mid - 1;
-            }
-        }
-        return -1;
-    }
-    ```
-
-2. Find the last target
-
-    ```java
-    public static int findLastTarget(int[] arr, int start, int end, int data) {
-        int low = start, high = end;
-
-        while (low <= high) {
-            int mid = low + ((high - low) >> 1);
-
-            if (arr[mid] > data) {
-                high = mid - 1;
-            } else if (arr[mid] < data) {
-                low  = mid + 1;
-            } else {
+                
+                // left = mid + 1;
                 // Equal, last of arr || last of repeated target
-                if ((mid == end) || (arr[mid + 1] != data))
-                    return mid;
-                low = mid + 1;
+                // if ((mid == end) || (nums[mid + 1] != target))
+                //     return mid;
             }
         }
         return -1;
     }
     ```
     
-3. Find the first number bigger than `>= target`
+2. Find the **first number `>= target` / last number `<= target`**
 
     ```java
-    public static int findFirstBigger(int[] arr, int start, int end, int data) {
-        int low = start, high = end;
+    public static int findFirstBigger(int[] nums, int start, int end, int target) {
+        int left = start, right = end;
 
-        while (low <= high) {
-            int mid = low + ((high - low) >> 1);
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
 
-            if (arr[mid] >= data) {
+            if (nums[mid] >= target) {
+                right = mid - 1;
                 // >=, first of arr || first elem bigger than target
-                if((mid == start) || (arr[mid - 1] < data))
+                if((mid == start) || (nums[mid - 1] < target))
                     return mid;
-                high = mid - 1;
             } else {
-                low  = mid + 1;
+                left  = mid + 1;
             }
-        }
-        return -1;
-    }
-    ```
 
-4. Find the last number smaller than `<= data`
-
-    ```java
-    public static int findLastSmaller(int[] arr, int start, int end, int data) {
-        int low = start, high = end;
-
-        while (low <= high) {
-            int mid = low + ((high - low) >> 1);
-
-            if (arr[mid] <= data) {
-                // >=, end of arr || last elem smaller than target
-                if ((mid == end) || (arr[mid + 1] > data))
-                    return mid;
-                low  = mid + 1;
-            } else {
-                high = mid - 1;
-            }
+            // last number smaller than target
+            // if (nums[mid] <= target) {
+            //     left  = mid + 1;
+            //     // >=, end of arr || last elem smaller than target
+            //     if ((mid == end) || (nums[mid + 1] > target))
+            //         return mid;
+            // } else {
+            //     right = mid - 1;
+            // }
         }
         return -1;
     }
