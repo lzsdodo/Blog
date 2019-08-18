@@ -1,5 +1,5 @@
 ---
-abbrlink: 
+abbrlink: c096a6bd
 title: Manacher's Algorithm
 categories: Algo
 tags: 
