@@ -1,0 +1,335 @@
+<!DOCTYPE html><html class="theme-next mist use-motion" lang="en"><head><meta name="generator" content="Hexo 3.8.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"><meta name="theme-color" content="#222"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link href="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css"><link href="//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"><link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0"><link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_32x32.png?v=6.3.0"><link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_16x16.png?v=6.3.0"><link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222"><script type="text/javascript" id="hexo.configurations">var NexT=window.NexT||{},CONFIG={root:"/",scheme:"Mist",version:"6.3.0",sidebar:{position:"left",display:"hide",offset:12,b2t:!1,scrollpercent:!1,onmobile:!1},fancybox:!0,fastclick:!1,lazyload:!1,tabs:!0,motion:{enable:!0,async:!1,transition:{post_block:"fadeIn",post_header:"slideDownIn",post_body:"slideDownIn",coll_header:"slideLeftIn",sidebar:"slideUpIn"}},algolia:{applicationID:"",apiKey:"",indexName:"",hits:{per_page:10},labels:{input_placeholder:"Search for Posts",hits_empty:"We didn't find any results for the search: ${query}",hits_stats:"${hits} results found in ${time} ms"}}}</script><meta name="description" content="[TOC]     Web 与网络基础 1.1 使用 HTTP 访问 Web 1.2 HTTP 历史 1.2 网络基础 TCP/IP TCP/IP 通信传输流         图解 HTTP留坑，整理中   [日] 上野宣 | 人民邮电出版社 Summarized by Zachary  Completed on Xx. xx, 2016   Web 与网络基础#1.1 使用 HTTP 访问 We"><meta name="keywords" content="HTTP"><meta property="og:type" content="article"><meta property="og:title" content="图解 HTTP"><meta property="og:url" content="https://blog.zsliang.me/posts/88d17672/index.html"><meta property="og:site_name" content="Dodo&#39;s Blog"><meta property="og:description" content="[TOC]     Web 与网络基础 1.1 使用 HTTP 访问 Web 1.2 HTTP 历史 1.2 网络基础 TCP/IP TCP/IP 通信传输流         图解 HTTP留坑，整理中   [日] 上野宣 | 人民邮电出版社 Summarized by Zachary  Completed on Xx. xx, 2016   Web 与网络基础#1.1 使用 HTTP 访问 We"><meta property="og:locale" content="en"><meta property="og:updated_time" content="2019-08-18T09:15:44.095Z"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="图解 HTTP"><meta name="twitter:description" content="[TOC]     Web 与网络基础 1.1 使用 HTTP 访问 Web 1.2 HTTP 历史 1.2 网络基础 TCP/IP TCP/IP 通信传输流         图解 HTTP留坑，整理中   [日] 上野宣 | 人民邮电出版社 Summarized by Zachary  Completed on Xx. xx, 2016   Web 与网络基础#1.1 使用 HTTP 访问 We"><link rel="alternate" href="/atom.xml" title="Dodo's Blog" type="application/atom+xml"><link rel="canonical" href="https://blog.zsliang.me/posts/88d17672/"><script type="text/javascript" id="page.configurations">CONFIG.page={sidebar:""}</script><title>图解 HTTP | Dodo's Blog</title><noscript><style type="text/css">.sidebar-inner,.use-motion .brand,.use-motion .collection-title,.use-motion .comments,.use-motion .menu-item,.use-motion .motion-element,.use-motion .pagination,.use-motion .post-block,.use-motion .post-body,.use-motion .post-header{opacity:initial}.use-motion .logo,.use-motion .site-subtitle,.use-motion .site-title{opacity:initial;top:initial}.logo-line-after i{right:initial}</style></noscript></head><body itemscope="" itemtype="http://schema.org/WebPage" lang="en"><div class="container sidebar-position-left page-post-detail"><div class="headband"></div><header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-brand-wrapper"><div class="site-meta"><div class="custom-logo-site-title"><a href="/" class="brand" rel="start"><span class="logo-line-before"><i></i></span> <span class="site-title">Dodo's Blog</span><span class="logo-line-after"><i></i></span></a></div></div><div class="site-nav-toggle"> <button aria-label="Toggle navigation bar"><span class="btn-bar"></span><span class="btn-bar"></span><span class="btn-bar"></span></button></div></div><nav class="site-nav"><ul id="menu" class="menu"><li class="menu-item menu-item-home"> <a href="/" rel="section">HOME</a></li><li class="menu-item menu-item-archives"> <a href="/archives/" rel="section">ARCHIVE</a></li><li class="menu-item menu-item-categories"> <a href="/categories/" rel="section">CATEGORY</a></li><li class="menu-item menu-item-tags"> <a href="/tags/" rel="section">TAG</a></li><li class="menu-item menu-item-rss"> <a href="/atom.xml" rel="section">RSS</a></li><li class="menu-item menu-item-search"> <a href="javascript:;" class="popup-trigger">SEARCH</a></li></ul><div class="site-search"><div class="popup search-popup local-search-popup"><div class="local-search-header clearfix"><span class="search-icon"><i class="fa fa-search"></i></span><span class="popup-btn-close"><i class="fa fa-times-circle"></i></span><div class="local-search-input-wrapper"> <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input"></div></div><div id="local-search-result"></div></div></div></nav></div></header> <a href="https://github.com/lzsdodo" class="github-corner" target="_blank" title="Follow me" aria-label="Follow me" rel="external nofollow noopener noreferrer"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#222;color:#fff;position:absolute;top:0;border:0;right:0" aria-hidden="true"><path d="M0 0 115 115 130 115 142 142 250 250 250 0Z"/><path d="M128.3 109C113.8 99.7 119 89.6 119 89.6 122 82.7 120.5 78.6 120.5 78.6 119.2 72 123.4 76.3 123.4 76.3 127.3 80.9 125.5 87.3 125.5 87.3 122.9 97.6 130.6 101.9 134.4 103.2" fill="currentColor" style="transform-origin:130px 106px" class="octo-arm"/><path d="M115 115C114.9 115.1 118.7 116.5 119.8 115.4L133.7 101.6C136.9 99.2 139.9 98.4 142.2 98.6 133.8 88 127.5 74.4 143.8 58 148.5 53.4 154 51.2 159.7 51 160.3 49.4 163.2 43.6 171.4 40.1 171.4 40.1 176.1 42.5 178.8 56.2 183.1 58.6 187.2 61.8 190.9 65.4 194.5 69 197.7 73.2 200.1 77.6 213.8 80.2 216.3 84.9 216.3 84.9 212.7 93.1 206.9 96 205.4 96.6 205.1 102.4 203 107.8 198.3 112.5 181.9 128.9 168.3 122.5 157.7 114.1 157.9 116.9 156.7 120.9 152.7 124.9L141 136.5C139.8 137.7 141.6 141.9 141.8 141.8Z" fill="currentColor" class="octo-body"/></svg></a><main id="main" class="main"><div class="main-inner"><div class="content-wrap"><div id="content" class="content"><div id="posts" class="posts-expand"><article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article"><div class="post-block"><link itemprop="mainEntityOfPage" href="https://blog.zsliang.me/posts/88d17672/"><span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person"><meta itemprop="name" content="Zachary"><meta itemprop="description" content="Hello World."><meta itemprop="image" content="/images/avatar.png"></span><span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization"><meta itemprop="name" content="Dodo's Blog"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">图解 HTTP</h1><div class="post-meta"><span class="post-time"><span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i></span> <span class="post-meta-item-text">Posted on</span> <time title="Created: 2016-01-01 00:00:00" itemprop="dateCreated datePublished" datetime="2016-01-01T00:00:00-05:00">2016-01-01</time></span> <span class="post-category"><span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-folder-o"></i></span> <span class="post-meta-item-text">In</span> <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Books/" itemprop="url" rel="index"><span itemprop="name">Books</span></a></span></span></div></header><div class="post-body" itemprop="articleBody"><p>[TOC]</p><div class="toc"><ul><li><a href="#web-yu-wang-luo-ji-chu"><strong>Web 与网络基础</strong></a><ul><li><a href="#1-1-shi-yong-http-fang-wen-web">1.1 使用 HTTP 访问 Web</a></li><li><a href="#1-2-http-li-shi">1.2 HTTP 历史</a></li><li><a href="#1-2-wang-luo-ji-chu-tcp-ip">1.2 网络基础 TCP/IP</a></li><li><a href="#tcp-ip-tong-xin-chuan-shu-liu">TCP/IP 通信传输流</a></li></ul></li></ul></div><hr><blockquote><p>图解 HTTP<br>留坑，整理中</p></blockquote><ul><li>[日] 上野宣 | 人民邮电出版社</li><li>Summarized by Zachary</li><li>Completed on Xx. xx, 2016</li></ul><hr><h2><span id="web-yu-wang-luo-ji-chu"><strong>Web 与网络基础</strong></span><a href="#web-yu-wang-luo-ji-chu" class="header-anchor">#</a></h2><h3><span id="1-1-shi-yong-http-fang-wen-web">1.1 使用 HTTP 访问 Web</span><a href="#1-1-shi-yong-http-fang-wen-web" class="header-anchor">#</a></h3><blockquote><p>Web 是建立在名为 HTTP (HyperText Transfer Protocol，超文本传输协议) 的协议作为规范，完成从客户端到服务器等一系列通信过程。</p></blockquote><h3><span id="1-2-http-li-shi">1.2 HTTP 历史</span><a href="#1-2-http-li-shi" class="header-anchor">#</a></h3><blockquote><p>为知识共享而规划 Web<br>最初设想的基本理念：借助多文档之间相互关联形成的超文本 (HyperText)。</p></blockquote><ul><li>现有 3 项 WWW 构建技术：<ol><li>SGML (Standard Generalized Markup Language，标准通用标记语言)</li><li>HTML (HyperText Markup Language，超文本标记语言)</li><li>URL (Uniform Resource Locator，统一资源定位符)</li></ol></li></ul><blockquote><p>当前：RFC2616-Hypertext Transfer Protocol — HTTP/1.1<br>最新：HTTP/2.0</p></blockquote><h3><span id="1-2-wang-luo-ji-chu-tcp-ip">1.2 网络基础 TCP/IP</span><a href="#1-2-wang-luo-ji-chu-tcp-ip" class="header-anchor">#</a></h3><blockquote><p>TCP/IP 是互联网相关的各类协议集合的总称 。<br>而 HTTP 属于 TCP/IP 协议族内的一个子集。</p></blockquote><ul><li>TCP/IP 协议族里重要的一点就是分层。</li><li><p>按层次分别分为以下 4 层：<strong>应用层、传输层、网络层和数据链路层</strong>。</p><ol><li><p><strong>应用层</strong>：决定了向用户提供应用服务时通信的活动。<br> FTP (File Transfer Protocol，文件传输协议) ；<br> DNS (Domain Name System，域名系统) ；<br> HTTP 协议也处于该层。</p></li><li><p><strong>传输层</strong>：提供处于网络连接中的两台计算机之间的数据传输。<br> 有两个性质不同的协议：<br> TCP (Transmission Control Protocol，传输控制协议)；<br> UDP (User Data Protocol，用户数据报协议)；</p></li><li><p><strong>网络层</strong>：用来处理在网络上流动的数据包。<br> 该层规定通过怎样的路径（所谓的传输路线）到达对方计算机，并把数据包（数据包是网络传输的最小数据单位）传送给对方。</p></li><li><p><strong>链路层</strong>：用来处理连接网络的硬件部分。<br> 硬件上的范畴均在链路层的作用范围之内。<br> 控制操作系统、硬件的设备驱动、网络适配器 NIC (Network Interface Card，即网卡)，及光纤等物理可见部分 (还包括连接器等一切传输媒介)。</p></li></ol></li></ul><h3><span id="tcp-ip-tong-xin-chuan-shu-liu">TCP/IP 通信传输流</span> <a href="#tcp-ip-tong-xin-chuan-shu-liu" class="header-anchor">#</a></h3><p> 封装 (encapsulate) ：把数据信息包装起来。<br>层与层之间传输数据时，每经一层会被打上该层所属的首部信息。反之，接收时，消去对应首部信息。</p><p>与 HTTP 关系密切的协议 : IP、TCP 和 DNS</p><p>IP（Internet Protocol）网际协议位于网络层，TCP/IP 协议族中的 IP 指的就是网际协议。<br>IP 协议的作用是把各种数据包传送给对方，其中两个重要的条件是 IP 地址和 MAC 地址（Media Access Control Address）。<br> IP 地址指明了节点被分配到的地址，MAC 地址是指网卡所属的固定地址。IP 地址可以和 MAC 地址进行配对。<br> ARP 协议 (Address Resolution Protocol)。ARP 是一种用以解析地址的协议，根据通信方的 IP 地址就可以反查出对应的 MAC 地址。</p><p>在到达通信目标前的中转过程中，那些计算机和路由器等网络设备只能获悉很粗略的传输路线，这种机制称为路由选择（routing）。</p><p>1.4.2</p><p><br \=""><strong>Author:&nbsp;Zachary</strong><br \=""><strong>Post link:&nbsp;</strong> <a href="https://blog.zsliang.me/posts/88d17672/">https://blog.zsliang.me/posts/88d17672/</a><br \=""><strong>Copyright:&nbsp;</strong>All articles in this blog are licensed under <a target="_blank" rel="external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><b>CC BY-NC-SA 4.0</b></a> unless stating additionally.<br \=""></p></div><footer class="post-footer"><div class="post-tags"> <a href="/tags/HTTP/" rel="tag"># HTTP</a></div><div class="post-nav"><div class="post-nav-next post-nav-item"><a href="/posts/2eec1551/" rel="next" title="HTML"><i class="fa fa-chevron-left"></i> HTML</a></div><span class="post-nav-divider"></span><div class="post-nav-prev post-nav-item"> <a href="/posts/f9f2d97/" rel="prev" title="设计思考">设计思考<i class="fa fa-chevron-right"></i></a></div></div></footer></div></article><div class="post-spread"></div></div></div></div><div class="sidebar-toggle"><div class="sidebar-toggle-line-wrap"><span class="sidebar-toggle-line sidebar-toggle-line-first"></span><span class="sidebar-toggle-line sidebar-toggle-line-middle"></span><span class="sidebar-toggle-line sidebar-toggle-line-last"></span></div></div><aside id="sidebar" class="sidebar"><div class="sidebar-inner"><ul class="sidebar-nav motion-element"><li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap"> Table of Contents</li></ul><section class="site-overview-wrap sidebar-panel"><div class="site-overview"></div></section><section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active"><div class="post-toc"><div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Web 与网络基础#</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 使用 HTTP 访问 Web#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 HTTP 历史#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.</span> <span class="nav-text">1.2 网络基础 TCP/IP#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.4.</span> <span class="nav-text">TCP/IP 通信传输流 #</span></a></li></ol></li></ol></div></div></section></div></aside></div></main><footer id="footer" class="footer"><div class="footer-inner"><div class="copyright">&copy; 1969 &mdash; <span itemprop="copyrightYear">2019</span><span class="with-love" id="animate"><i class="fa fa-heart"></i></span> <span class="author" itemprop="copyrightHolder"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://en.wikipedia.org/wiki/Internet"><b>Internet</b></a></span></div><div class="footer-custom">Hosted by <a target="_blank" rel="external nofollow" href="https://zsliang.me"><b>Curiosity</b></a>&emsp;|&emsp;Powered by <a href="https://hexo.io" rel="external nofollow noopener noreferrer" target="_blank"><b>Hexo</b></a>&emsp;|&emsp;Theme — <a href="https://theme-next.org" rel="external nofollow noopener noreferrer" target="_blank"><b>NexT</b></a></div></div></footer><div class="back-to-top"><i class="fa fa-arrow-up"></i></div></div><script type="text/javascript">"[object Function]"!==Object.prototype.toString.call(window.Promise)&&(window.Promise=null)</script><script type="text/javascript" src="//cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="//cdn.jsdelivr.net/npm/velocity-animate@1.5.1/velocity.min.js"></script><script type="text/javascript" src="//cdn.jsdelivr.net/npm/velocity-ui-pack@1.2.2/velocity.ui.min.js"></script><script type="text/javascript" src="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.pack.js"></script><script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script><script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script><script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script><script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script><script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script><script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('5');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script><script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script><script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script><script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/javascript" src="/js/src/js.cookie.js?v=6.3.0"></script><script type="text/javascript" src="/js/src/scroll-cookie.js?v=6.3.0"></script></body></html>

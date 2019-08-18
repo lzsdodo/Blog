@@ -1,0 +1,349 @@
+<!DOCTYPE html><html class="theme-next mist use-motion" lang="en"><head><meta name="generator" content="Hexo 3.8.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"><meta name="theme-color" content="#222"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link href="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css"><link href="//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"><link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0"><link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_32x32.png?v=6.3.0"><link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_16x16.png?v=6.3.0"><link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222"><script type="text/javascript" id="hexo.configurations">var NexT=window.NexT||{},CONFIG={root:"/",scheme:"Mist",version:"6.3.0",sidebar:{position:"left",display:"hide",offset:12,b2t:!1,scrollpercent:!1,onmobile:!1},fancybox:!0,fastclick:!1,lazyload:!1,tabs:!0,motion:{enable:!0,async:!1,transition:{post_block:"fadeIn",post_header:"slideDownIn",post_body:"slideDownIn",coll_header:"slideLeftIn",sidebar:"slideUpIn"}},algolia:{applicationID:"",apiKey:"",indexName:"",hits:{per_page:10},labels:{input_placeholder:"Search for Posts",hits_empty:"We didn't find any results for the search: ${query}",hits_stats:"${hits} results found in ${time} ms"}}}</script><meta name="description" content="[TOC]     入门第二季 第一章 类和对象 √ 第二章 封装 √ 第三章 继承 √ 第四章 多态 √         学习途径：慕课网《Java 入门》         Summarized by Zachary    因为有一定基础，第一季直接忽略掉了。 入门第一季#  入门第二季 # 第一章 类和对象 √# 什么是类和对象        什么是类？：类是对象的类型 ； 具有相同特征（属性"><meta name="keywords" content="Java"><meta property="og:type" content="article"><meta property="og:title" content="Java"><meta property="og:url" content="https://blog.zsliang.me/posts/df2849ec/index.html"><meta property="og:site_name" content="Dodo&#39;s Blog"><meta property="og:description" content="[TOC]     入门第二季 第一章 类和对象 √ 第二章 封装 √ 第三章 继承 √ 第四章 多态 √         学习途径：慕课网《Java 入门》         Summarized by Zachary    因为有一定基础，第一季直接忽略掉了。 入门第一季#  入门第二季 # 第一章 类和对象 √# 什么是类和对象        什么是类？：类是对象的类型 ； 具有相同特征（属性"><meta property="og:locale" content="en"><meta property="og:updated_time" content="2019-08-18T09:15:44.109Z"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Java"><meta name="twitter:description" content="[TOC]     入门第二季 第一章 类和对象 √ 第二章 封装 √ 第三章 继承 √ 第四章 多态 √         学习途径：慕课网《Java 入门》         Summarized by Zachary    因为有一定基础，第一季直接忽略掉了。 入门第一季#  入门第二季 # 第一章 类和对象 √# 什么是类和对象        什么是类？：类是对象的类型 ； 具有相同特征（属性"><link rel="alternate" href="/atom.xml" title="Dodo's Blog" type="application/atom+xml"><link rel="canonical" href="https://blog.zsliang.me/posts/df2849ec/"><script type="text/javascript" id="page.configurations">CONFIG.page={sidebar:""}</script><title>Java | Dodo's Blog</title><noscript><style type="text/css">.sidebar-inner,.use-motion .brand,.use-motion .collection-title,.use-motion .comments,.use-motion .menu-item,.use-motion .motion-element,.use-motion .pagination,.use-motion .post-block,.use-motion .post-body,.use-motion .post-header{opacity:initial}.use-motion .logo,.use-motion .site-subtitle,.use-motion .site-title{opacity:initial;top:initial}.logo-line-after i{right:initial}</style></noscript></head><body itemscope="" itemtype="http://schema.org/WebPage" lang="en"><div class="container sidebar-position-left page-post-detail"><div class="headband"></div><header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-brand-wrapper"><div class="site-meta"><div class="custom-logo-site-title"><a href="/" class="brand" rel="start"><span class="logo-line-before"><i></i></span> <span class="site-title">Dodo's Blog</span><span class="logo-line-after"><i></i></span></a></div></div><div class="site-nav-toggle"> <button aria-label="Toggle navigation bar"><span class="btn-bar"></span><span class="btn-bar"></span><span class="btn-bar"></span></button></div></div><nav class="site-nav"><ul id="menu" class="menu"><li class="menu-item menu-item-home"> <a href="/" rel="section">HOME</a></li><li class="menu-item menu-item-archives"> <a href="/archives/" rel="section">ARCHIVE</a></li><li class="menu-item menu-item-categories"> <a href="/categories/" rel="section">CATEGORY</a></li><li class="menu-item menu-item-tags"> <a href="/tags/" rel="section">TAG</a></li><li class="menu-item menu-item-rss"> <a href="/atom.xml" rel="section">RSS</a></li><li class="menu-item menu-item-search"> <a href="javascript:;" class="popup-trigger">SEARCH</a></li></ul><div class="site-search"><div class="popup search-popup local-search-popup"><div class="local-search-header clearfix"><span class="search-icon"><i class="fa fa-search"></i></span><span class="popup-btn-close"><i class="fa fa-times-circle"></i></span><div class="local-search-input-wrapper"> <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input"></div></div><div id="local-search-result"></div></div></div></nav></div></header> <a href="https://github.com/lzsdodo" class="github-corner" target="_blank" title="Follow me" aria-label="Follow me" rel="external nofollow noopener noreferrer"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#222;color:#fff;position:absolute;top:0;border:0;right:0" aria-hidden="true"><path d="M0 0 115 115 130 115 142 142 250 250 250 0Z"/><path d="M128.3 109C113.8 99.7 119 89.6 119 89.6 122 82.7 120.5 78.6 120.5 78.6 119.2 72 123.4 76.3 123.4 76.3 127.3 80.9 125.5 87.3 125.5 87.3 122.9 97.6 130.6 101.9 134.4 103.2" fill="currentColor" style="transform-origin:130px 106px" class="octo-arm"/><path d="M115 115C114.9 115.1 118.7 116.5 119.8 115.4L133.7 101.6C136.9 99.2 139.9 98.4 142.2 98.6 133.8 88 127.5 74.4 143.8 58 148.5 53.4 154 51.2 159.7 51 160.3 49.4 163.2 43.6 171.4 40.1 171.4 40.1 176.1 42.5 178.8 56.2 183.1 58.6 187.2 61.8 190.9 65.4 194.5 69 197.7 73.2 200.1 77.6 213.8 80.2 216.3 84.9 216.3 84.9 212.7 93.1 206.9 96 205.4 96.6 205.1 102.4 203 107.8 198.3 112.5 181.9 128.9 168.3 122.5 157.7 114.1 157.9 116.9 156.7 120.9 152.7 124.9L141 136.5C139.8 137.7 141.6 141.9 141.8 141.8Z" fill="currentColor" class="octo-body"/></svg></a><main id="main" class="main"><div class="main-inner"><div class="content-wrap"><div id="content" class="content"><div id="posts" class="posts-expand"><article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article"><div class="post-block"><link itemprop="mainEntityOfPage" href="https://blog.zsliang.me/posts/df2849ec/"><span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person"><meta itemprop="name" content="Zachary"><meta itemprop="description" content="Hello World."><meta itemprop="image" content="/images/avatar.png"></span><span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization"><meta itemprop="name" content="Dodo's Blog"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">Java</h1><div class="post-meta"><span class="post-time"><span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i></span> <span class="post-meta-item-text">Posted on</span> <time title="Created: 2016-01-01 00:00:00" itemprop="dateCreated datePublished" datetime="2016-01-01T00:00:00-05:00">2016-01-01</time></span> <span class="post-category"><span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-folder-o"></i></span> <span class="post-meta-item-text">In</span> <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/nil/" itemprop="url" rel="index"><span itemprop="name">nil</span></a></span></span></div></header><div class="post-body" itemprop="articleBody"><p>[TOC]</p><div class="toc"><ul><li><a href="#ru-men-di-er-ji">入门第二季</a><ul><li><a href="#di-yi-zhang-lei-he-dui-xiang">第一章 类和对象 √</a></li><li><a href="#di-er-zhang-feng-zhuang">第二章 封装 √</a></li><li><a href="#di-san-zhang-ji-cheng">第三章 继承 √</a></li><li><a href="#di-si-zhang-duo-tai">第四章 多态 √</a></li></ul></li></ul></div><hr><ul><li>学习途径：慕课网《Java 入门》</li><li>Summarized by Zachary</li></ul><hr><blockquote><p>因为有一定基础，第一季直接忽略掉了。</p><h5><span id="ru-men-di-yi-ji">入门第一季</span><a href="#ru-men-di-yi-ji" class="header-anchor">#</a></h5></blockquote><hr><h2><span id="ru-men-di-er-ji">入门第二季</span> <a href="#ru-men-di-er-ji" class="header-anchor">#</a></h2><h3> <span id="di-yi-zhang-lei-he-dui-xiang">第一章 类和对象 √</span><a href="#di-yi-zhang-lei-he-dui-xiang" class="header-anchor">#</a></h3><ul><li><p>什么是类和对象</p><ol><li>什么是类？：<strong>类是对象的类型</strong> ； <strong>具有相同特征（属性）和行为（方法）的事物的抽象集合。</strong></li><li>什么是对象？：类里面的具体的个例；</li><li>什么是面向对象？：以对象为编程中心，以事件为驱动，各功能模块化的，彼此独立互不影响，的一种编程思想。</li><li>什么是对象的属性：对象拥有的各种特征（<strong>属性</strong>）。</li><li>什么是对象的方法：对象可以执行的行为（<strong>方法</strong>）。</li><li>类与对象的关系 / 区别：<strong>类是抽象的概念</strong>；对象是一个具体的实体。</li></ol></li><li><p>定义 Java 中的类</p><ol><li>类的重要性：所有 Java 程序都以类 class 为组织单元</li><li>类的组成：属性和方法</li><li><p>定义一个类的步骤</p><ol><li>定义类名（<strong>首字母大写</strong>）</li><li>编写类的属性</li><li><p>编写类的方法</p><pre><code><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> 类名 </span>&#123;</span><br><span class="line">    <span class="comment">// 定义属性部分（成员变量）</span></span><br><span class="line">    属性 <span class="number">1</span> 的类型 属性 <span class="number">1</span>；</span><br><span class="line">    属性<span class="number">2</span> 的类型 属性<span class="number">2</span>；</span><br><span class="line">    ...</span><br><span class="line">    <span class="comment">// 定义方法部分</span></span><br><span class="line">    方法<span class="number">1</span>；</span><br><span class="line">    方法<span class="number">2</span>；</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Demo</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Telphone</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 手机的属性</span></span><br><span class="line">    <span class="keyword">float</span> screen;</span><br><span class="line">    <span class="keyword">float</span> cpu;</span><br><span class="line">    <span class="comment">// 手机的方法</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">call</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"打电话!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">sendMessage</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"发短信!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></code></pre></li></ol></li></ol></li></ul><ul><li>如何使用 Java 中的对象<ul><li>使用对象的步骤<ol><li>创建对象<ul><li><strong>实例化</strong>，存在内存当中</li><li><code>类名 对象名 = new 类名();</code></li><li><code>Telphone phone = new Telphone();</code></li></ul></li><li>使用对象<ul><li>引用对象的属性 / 方法</li><li><code>对象名. 属性</code> / <code>对象名. 方法</code></li><li><code>phone.screen = 4; // screen 属性赋值 5。</code></li><li><code>phone.sendMessage(); // 调用 sendMessage() 方法</code></li></ul></li></ol></li></ul></li><li><p>Java 中的成员变量和局部变量</p><ol><li><strong>成员变量</strong> ： <strong>类中定义</strong>，描述对象将要有什么。</li><li><strong>局部变量</strong> ： <strong>类的方法中定义</strong>，在方法中临时保存数据。</li><li>两者的区别<ol><li><strong>作用域不同</strong><ol><li>成员变量的作用域在整个类内部都是可见的；</li><li>局部变量的作用域仅限于定义它的方法。</li></ol></li><li><strong>初始值不同</strong><ol><li>成员变量会被 Java 赋予初始值；</li><li>局部变量不会被 Java 赋予初始值。</li></ol></li><li>同一方法中，不允许有同名局部变量；<br>不同方法中，允许有同名局部变量。</li><li>两类变量同名时，局部变量具有更高的优先级。（就近原则）</li></ol></li></ol></li><li><p>Java 中的 <strong>构造方法</strong></p><ol><li>使用 <strong><code>new + 构造方法</code></strong>，创建一个新的对象。</li><li>构造方法是定义在 Java 类中的一个用来初始化对象的方法。<ul><li>构造方法与类同名且没有返回值。</li></ul></li><li><p>构造方法的语法格式</p><pre><code><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">        piblic 构造方法名 () &#123;</span><br><span class="line">            <span class="comment">// 初始化代码...</span></span><br><span class="line">        &#125;        </span><br><span class="line">        </span><br><span class="line">    - 无参的构造方法       </span><br><span class="line">            </span><br><span class="line">``` java</span><br><span class="line">            <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Telphone</span> </span>&#123;</span><br><span class="line">                <span class="function"><span class="keyword">public</span> <span class="title">Telphone</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                    System.out.println(<span class="string">"来(ai) 过。"</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// Telphone phone = new Telphone();</span></span><br></pre></td></tr></table></figure></code></pre><ul><li><p>有参的构造方法（与无参构造方法类似，列参数列表，可以给对象中的实例变量赋初值）</p><pre><code><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Telphone</span> </span>&#123;</span><br><span class="line">    <span class="keyword">float</span> screen;</span><br><span class="line">    <span class="keyword">float</span> cpu;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Telphone</span><span class="params">(<span class="keyword">float</span> newScreen, <span class="keyword">float</span> newCpu)</span> </span>&#123;</span><br><span class="line">        screen = newScreen;</span><br><span class="line">        cpu = newCpu;</span><br><span class="line">        System.out.println(<span class="string">"来 (ai) 过。"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Telphone phone = new Telphone(4.0f,2.0f);</span></span><br></pre></td></tr></table></figure></code></pre></li></ul></li></ol></li></ul><pre><code>4. 没有指定构造方法时，系统自动添加无参的构造方法      
+5. 当有指定构造方法时，无论是有参、无参的构造方法，都不会自动添加无参的构造方法。      
+6. 构造方法的重载：方法名相同，但参数不同的多个方法，调用时会自动根据不同的参数选择相应的方法。       
+7. 构造方法不但可以给对象的属性赋值，还可以保证给对象的属性赋予一个合理的值。（构造方法内判断传值是否正确。）    
+</code></pre><ul><li><p>Java 中的 static 使用</p><ul><li><p>静态变量</p><blockquote><p>Java 中被 static 修饰的成员称为静态成员或类成员。<br>它属于整个类所有，而不是某个对象所有，即被类的所有对象所共享。<br>静态成员可以使用类名直接访问，也可以使用对象名进行访问。<br>鉴于他作用的特殊性，更推荐用类名访问。</p></blockquote><ul><li>使用 <strong><code>static</code></strong> 可以修饰变量、方法和代码块。</li></ul></li><li><p>静态方法</p><ul><li>与静态变量一样，也可以使用 <code>static</code> 修饰方法，称为静态方法或类方法。</li><li>注意：<ol><li>静态方法中可以直接调用同类中的静态成员，但不能直接调用非静态成员。</li><li>在普通成员方法中，则可以直接访问同类的非静态变量和静态变量。</li><li>静态方法中不能直接调用非静态方法，需要通过对象来访问非静态方法。</li></ol></li></ul></li><li><p>静态初始化块</p><blockquote><p>Java 中可以通过初始化块进行数据赋值。</p></blockquote><ul><li>静态初始化块只在类加载时执行，且只会执行一次，同时静态初始化块只能给静态变量赋值，不能初始化普通的成员变量。</li><li>程序运行时，<strong>静态初始化块最先被执行</strong>，然后执行普通初始化块，最后才执行构造方法。（ 静态初始化块 &gt; 普通初始化块 &gt; 构造方法 ）</li></ul></li></ul></li></ul><h3><span id="di-er-zhang-feng-zhuang">第二章 封装 √</span><a href="#di-er-zhang-feng-zhuang" class="header-anchor">#</a></h3><blockquote><p>面向对象三大特性：<strong>封装、继承、多态</strong></p></blockquote><ul><li><p>Java 中的封装</p><ul><li>将类的信息隐藏在类内部，不允许外部程序直接访问，而是通过该类提供的方法来实现影藏信息的操作和访问。</li><li>优点<ol><li>只能通过规定的方法访问数据。</li><li>隐藏类的实例细节，方便修改和实现。</li></ol></li><li>封装的实现步骤<ol><li>修改属性的可见性，设置 <strong><code>private</code></strong>。</li><li>创建 <strong><code>getter / setter</code></strong> 方法，用于属性的读写。（自动生成：<code>Source -&gt; Generate Getters and Setters</code>）</li><li>在 <code>getter / setter</code> 方法中加入属性控制语句。</li></ol></li></ul></li><li><p>使用包管理 Java 中的类</p><ul><li>包的作用<ol><li>管理 Java 文件。</li><li>解决同名文件冲突。</li></ol></li><li>定义包：<strong><code>package</code></strong> 包名<ul><li>必须放在 Java 源程序第一行</li><li>包名间可以使用 <code>.</code> 号隔开</li></ul></li><li>系统中的包<ul><li><code>java.(功能).(类)</code></li><li><code>java.lang.(类)</code>：包含 java 语言基础的类</li><li><code>java.util.(类)</code>：包含 java 语言中各种工具类</li><li><code>java.io.(类)</code>：包含输入、输出相关功能的类</li></ul></li><li>包的使用<ul><li>可通过 <strong><code>import</code></strong> 关键字，在某个文件使用其他文件中的类。</li><li>Java 中，包的命名规范是全小写字母拼写。</li><li>使用 <code>.*</code> ，不但可以加载某个包下的所有文件，也可以加载某个具体子包下的所有文件。(e.g. <code>com.imooc.*</code>)</li></ul></li></ul></li></ul><ul><li><p>Java 中的访问修饰符</p><ul><li><p>访问修饰符：可以修饰属性和方法的访问范围。</p><p> | 访问修饰符 | 本类 | 同包 | 子类 | 其他 |<br> | :—: | :—: | :—: | :—: | :—: |<br> | private | √ | — | — | — |<br> | defalut | √ | √ | — | — |<br> | protected | √ | √ | √ | — |<br> | public | √ | √ | √ | √ |</p></li></ul></li><li><p>Java 中的 this 关键字</p><ol><li><strong><code>this</code></strong> 关键字代表当前对象<br> <code>this. 属性</code> 操作当前对象的属性。<br> <code>this. 方法</code> 调用当前对象的方法。</li><li><p>封装对象的属性的时候，经常会使用 <code>this</code> 关键字。</p><pre><code>// e.g. Setter 方法
+public void setParameter(float parameter) {this.parameter = parameter;}
+</code></pre></li></ol></li><li><p>Java 中的内部类</p><blockquote><ul><li><strong>内部类</strong> 与<strong>外部类</strong> ：<ol><li>内部类（Inner Class）：定义在另一个类里面的类；</li><li>外部类（Outer Class）：包含内部类的类被称为外部类。<br>(定义简写为 <code>IC</code> &amp; <code>OC</code>，范围仅限 <code>Java 中的内部类</code> 小节)</li></ol></li><li>内部类的分类<ol><li>成员内部类</li><li>静态内部类</li><li>方法内部类</li><li>匿名内部类</li></ol></li><li>主要作用<ol><li>提供更好的封装，把内部类隐藏在外部类之内，不允许同一个包中的其他类访问该类。</li><li>内部类的方法可以直接访问外部类的所有数据，包括私有数据。</li><li>内部类所实现的功能使用外部类同样可以实现，只是有时使用内部类更方便。</li></ol></li></ul></blockquote><ol><li><p>Java 中的成员内部类</p><ul><li>使用方法<ol><li>IC 定义在 OC 的内部，相当于一个成员变量的位置，IC 可以使用任意访问控制符。</li><li>IC 中定义的 <code>test()</code> 方法可以直接访问 OC 中的数据，而不受访问控制符的影响。</li><li>定义成员 IC 后，必须使用 OC 对象来创建 IC 对象，而不能直接去 <code>new</code> 一个内部类对象，即：<strong><code>InnerClass 对象名 = OuterClass.new InnerClass();</code></strong></li><li>编译后，内部成员的 <code>.class</code> 文件命名总是： <strong><code>OuterClass$InnerClass.class</code></strong></li></ol></li><li>注意<ol><li>OC 不能直接使用 IC 的成员和方法。可先创建 IC 的对象，然后通过 IC 的对象来访问成员变量和方法。</li><li>如果 OC 和 IC 具有相同的成员变量或方法，IC 默认访问自己的成员变量或方法，如果要访问 OC 的成员变量，使用 <strong><code>this</code></strong> 关键字。<br>e.g. <strong><code>OuterClass.this. 外部类成员变量</code></strong></li></ol></li></ul></li><li><p>Java 中的静态内部类</p><blockquote><p>静态内部类是 <code>static</code> 修饰的内部类。</p></blockquote><ul><li>特点<ol><li>静态内部类不能直接访问 OC 的非静态成员，但可通过 <strong><code>new OuterClass(). 成员</code></strong> 的方式访问。</li><li>若 OC 的静态成员与 IC 的成员名相同，可通过 <strong><code>OuterClass. 静态成员</code></strong> 访问 OC 的静态成员；若不同，则可直接通过 <strong><code>成员名</code></strong> 直接调用 OC 的静态成员。</li><li>创建静态内部类的对象时，不需要 OC 的对象，可直接创建。<br>e.g. <strong><code>内部类 对象名 = new 内部类();</code></strong></li></ol></li></ul></li><li><p>Java 中的方法内部类</p><blockquote><p>方法内部类就是内部类定义在外部类的方法中，方法内部类只在该方法的内部可见，即只可以在该方法内使用。</p></blockquote><ul><li>注意：方法内部类不能再 OC 的方法以外的地方使用，因此方法内部类不能使用访问控制符和 <code>static</code> 修饰符。</li></ul></li></ol></li></ul><h3><span id="di-san-zhang-ji-cheng">第三章 继承 √</span><a href="#di-san-zhang-ji-cheng" class="header-anchor">#</a></h3><ul><li><p>Java 中的继承</p><ol><li>继承的概念<ul><li>继承是类与类的一种关系。</li><li>Java 中的继承是 <strong>单继承</strong>，一个类只有一个父类。</li></ul></li><li>继承的优点<ul><li>子类拥有父类的所有属性和方法，<code>private</code> 修饰无效。</li><li>代码的复用</li></ul></li><li>语法规则<ul><li><code>class SubClass extends SuperClass</code></li></ul></li></ol></li><li><p>Java 中的方法重写</p><ul><li>方法重写<br> 若对继承父类的方法不满意，可以重写父类继承的方法，调用时会优先调用子类的方法。</li><li>语法规则<br> <strong><code>返回值类型</code> 、 <code>方法名</code> 、 <code>参数类型及个数</code></strong> 都要与父类继承的方法相同。</li></ul></li><li><p>Java 中的继承初始化顺序</p><ol><li>初始化父类再初始化子类。</li><li>先执行初始化对象中属性，再执行构造方法中的初始化。</li></ol></li><li><p>Java 中的 final 的使用</p><ul><li><code>final</code> 关键字，该标识有“最终的”含义。</li><li><code>final</code> 可以修饰类、方法、属性和变量。<ul><li>修饰类，该类不允许被继承。</li><li>修饰方法，该方法不允许被覆盖（重写）。</li><li>修饰属性，该类的属性不会进行隐式的初始化（类的初始化属性必须有值）或在构造方法中赋值。（但只能选其一）</li><li>修饰变量，该变量的值只能赋一次值，即变为常量。</li></ul></li></ul></li><li><p>Java 中的 super 的使用</p><blockquote><p><code>super</code> 关键字，在对象的内部使用，可以代表父类对象。</p><ul><li><strong><code>super</code></strong> 关键字<ol><li>访问父类的属性</li><li>访问父类的方法</li></ol></li><li><code>super</code> 的应用<ul><li>子类的构造的过程当中必须调用其父类的构造方法。</li><li>若子类的构造方法中没有显示调用父类的构造方法，则系统默认调用父类无参的构造方法（隐式调用 <strong><code>super();</code></strong>）。否则，必须在子类的构造方法的第一行。</li><li>若子类构造方法中既没有显式调用父类的构造方法，而父类又没有无参的构造方法，则编译出错。</li></ul></li></ul></blockquote></li><li><p>Java 中的 Object 类</p><blockquote><p>Object 类是所有类的父类。<br>Object 类中的方法，适合所有子类。</p><ul><li>若一个类没有使用 <strong><code>extends</code></strong> 关键字明确标识继承另一个类，则默认继承 Object 类。</li></ul></blockquote><ul><li><p>Object 类</p><ol><li><strong><code>Class.toString()</code></strong> 方法<ul><li>Object 类里定义的 toString() 方法的时候返回的对象的 <strong>哈希 code 码</strong>（对象地址字符串）。</li><li>可通过重写该方法表示出对象的属性。</li><li><code>Source -&gt; Generate toString()</code></li></ul></li><li><p><strong><code>Class.equals()</code></strong> 方法</p><ul><li>比较对象的 <strong>引用</strong>，是否指向同一块内存地址。</li><li>可通过重写比较对象的 <strong>属性</strong>，是否相等。</li><li><p><code>Source -&gt; Generate hashCode() and equals()</code></p><blockquote><p>注意：<strong>类对象</strong> （类型）与 <strong>类的对象</strong>（属性）的不同。</p></blockquote></li></ul></li></ol></li></ul></li></ul><h3><span id="di-si-zhang-duo-tai">第四章 多态 √</span><a href="#di-si-zhang-duo-tai" class="header-anchor">#</a></h3><ul><li><p>Java 中的多态</p><blockquote><p>对象的多种形态。</p></blockquote><ol><li>引用多态<ul><li>父类的引用可以指向本类的对象。</li><li>父类的引用可以指向子类的对象。</li></ul></li><li>方法多态<ul><li>创建本类对象时，调用的方法为本类方法。</li><li>创建子类对象时，调用的方法为子类重写的方法或继承的方法。</li></ul></li></ol></li><li><p>多态中的引用类型转换</p><ol><li>向上类型转换（隐式 / 自动类型转换），小类型 -&gt; 大类型</li><li>向下类型转换（强制类型转换），大类型 -&gt; 小类型 （溢出风险）</li><li><code>instanceof</code> 运算符，解决引用对象的类型，避免类型转换的安全性问题。<code>if (SuperClass instanceof Class) {}</code></li></ol></li><li><p>Java 中的抽象类</p><ol><li>抽象类前使用 <strong><code>abstract</code></strong> 关键字修饰。</li><li>应用场景<ul><li>某父类只知道其子类应该包含怎样的方法，但无法准确知道这些子类如何实现这些方法。</li><li>从多个具有相同特征的类中抽象出一个抽象类，以这个抽象类作为子类的模板，从而避免子类设计的随意性。</li></ul></li><li>作用<ul><li>限制规定子类必须实现某些方法，但不关注实现细节。</li></ul></li><li>使用规则<ol><li><code>abstract</code> 定义抽象类</li><li><code>abstract</code> 定义抽象方法，只有声明，不需要实现</li><li>包含抽象方法的类是抽象类</li><li>抽象类可以包含普通的方法，也可以没有抽象方法</li><li>抽象类不能直接创建，可以定义引用变量</li></ol></li></ol></li><li><p>Java 中的接口</p><ol><li>接口概念<ul><li>接口可以理解为一种特殊的类，由全局常量和公共的抽象方法所组成。</li><li>类是一种具体实现体，而接口定义了某一批类所需要遵守的 <strong>规范</strong>，接口不关心这些类的内部数据，也不关心这些类方法的实现细节，它只规定这些类里必须提供某些方法。</li></ul></li><li>接口定义<ul><li><strong><code>interface</code></strong> 关键字定义接口。</li><li>常量<ul><li>接口中的属性是常量，即使定义时不添加 <strong><code>public static final</code></strong> 修饰符，系统默认自动添加。</li></ul></li><li>方法<ul><li>接口中的方法只能是抽象方法，即使定义时不添加 <strong><code>public abstract</code></strong> 修饰符，系统默认自动添加。</li></ul></li></ul></li><li><p>基本语法</p><pre><code>[修饰符] interface 接口名 [extends 父接口 1, 父接口 2, ...] {
+    零到多个常量定义...     
+    零到多个抽象方法的定义...      
+}
+</code></pre><ul><li>接口就是用来 <strong>被继承、被实现</strong> 的，修饰符一般建议使用 <strong><code>public</code></strong>。<strong>注意不能使用</strong> <code>private</code> 和 <code>protected</code> 修饰接口。</li><li><code>interface</code> 系统默认添加 <strong><code>abstract</code></strong> 关键字。</li><li>接口可以继承多个父接口，接口是 <strong>多继承</strong> 的。</li></ul></li><li><p>使用接口</p><ul><li><strong><code>implements</code></strong> 关键字。</li><li>一个类可以实现一个或多个接口，Java 中一个类只能继承一个父类不够灵活，通过实现多个接口做补充。</li><li><p>继承父类实现接口的语法。如果要继承父类，<strong>继承父类必须在实现接口之前</strong>，<code>extends</code> 与 <code>implements</code> 顺序不可调换。</p><pre><code>[修饰符] class 类名 extends 父类 implements 接口 1, 接口 2, ...  {
+    类体部分
+    // 如果继承了抽象类，需要实现继承的抽象方法；要实现接口中的抽象方法。    
+}
+</code></pre></li><li>接口一般最前加一个 <strong><code>I</code></strong>，以便跟其他类区分开来。</li><li>使用过程当中，还经常与匿名内部类配合使用。匿名内部类就是没有名字的内部类，多用于实现而不关注实现类的名称。</li></ul></li></ol></li><li><p>UML 简介</p><ol><li><strong>UML</strong> 概念（<strong>Unified Modeling Language</strong>）<ul><li>统一建模语言或标准建模语言，是一个支持模型化和软件系统开发的图形化语言。为软件开发的所有阶段提供模型化和可视化支持。</li></ul></li><li>UML 图示<ul><li>UML 2.2 一共定义了 14 种图示（diagrams）。</li></ul></li><li>常用 UML 图<ol><li><strong>用例图（THe Use Case Diagram）</strong><ul><li>用例图能够以可视化的方式，表达系统如何满足所收集的业务规则，以及特定的用户需求等信息。</li></ul></li><li><strong>序列图（The Sequence Diagram）</strong><ul><li>序列图用于按照交互发生的一系列顺序，显示对象之间的这些交互。</li></ul></li><li><strong>类图（The Class Diagram）</strong><ul><li>UML 类图、业务逻辑和所有支持结构一同被用于定义全部的代码结构。</li></ul></li></ol></li><li>UML 建模工具<ul><li><code>Visio(Microsoft)、Rational Rose(IBM)、PowerDesign</code> 三种建模工具应用最广。</li></ul></li></ol></li></ul><hr><blockquote><p>已经过了该阶段，第三季也取消了。</p><h4><span id="ru-men-di-san-ji">入门第三季</span><a href="#ru-men-di-san-ji" class="header-anchor">#</a></h4></blockquote><hr><p><br \=""><strong>Author:&nbsp;Zachary</strong><br \=""><strong>Post link:&nbsp;</strong> <a href="https://blog.zsliang.me/posts/df2849ec/">https://blog.zsliang.me/posts/df2849ec/</a><br \=""><strong>Copyright:&nbsp;</strong>All articles in this blog are licensed under <a target="_blank" rel="external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><b>CC BY-NC-SA 4.0</b></a> unless stating additionally.<br \=""></p></div><footer class="post-footer"><div class="post-tags"> <a href="/tags/Java/" rel="tag"># Java</a></div><div class="post-nav"><div class="post-nav-next post-nav-item"><a href="/posts/165974dc/" rel="next" title="创新与企业家精神"><i class="fa fa-chevron-left"></i> 创新与企业家精神</a></div><span class="post-nav-divider"></span><div class="post-nav-prev post-nav-item"> <a href="/posts/d7add548/" rel="prev" title="GRE Reading">GRE Reading<i class="fa fa-chevron-right"></i></a></div></div></footer></div></article><div class="post-spread"></div></div></div></div><div class="sidebar-toggle"><div class="sidebar-toggle-line-wrap"><span class="sidebar-toggle-line sidebar-toggle-line-first"></span><span class="sidebar-toggle-line sidebar-toggle-line-middle"></span><span class="sidebar-toggle-line sidebar-toggle-line-last"></span></div></div><aside id="sidebar" class="sidebar"><div class="sidebar-inner"><ul class="sidebar-nav motion-element"><li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap"> Table of Contents</li></ul><section class="site-overview-wrap sidebar-panel"><div class="site-overview"></div></section><section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active"><div class="post-toc"><div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">入门第一季#</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number"></span> <span class="nav-text">入门第二季 #</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number"></span> <span class="nav-text">第一章 类和对象 √#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number"></span> <span class="nav-text">第二章 封装 √#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number"></span> <span class="nav-text">第三章 继承 √#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number"></span> <span class="nav-text">第四章 多态 √#</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number"></span> <span class="nav-text">入门第三季#</span></a></li></ol></li></ol></li></div></div></section></div></aside></div></main><footer id="footer" class="footer"><div class="footer-inner"><div class="copyright">&copy; 1969 &mdash; <span itemprop="copyrightYear">2019</span><span class="with-love" id="animate"><i class="fa fa-heart"></i></span> <span class="author" itemprop="copyrightHolder"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://en.wikipedia.org/wiki/Internet"><b>Internet</b></a></span></div><div class="footer-custom">Hosted by <a target="_blank" rel="external nofollow" href="https://zsliang.me"><b>Curiosity</b></a>&emsp;|&emsp;Powered by <a href="https://hexo.io" rel="external nofollow noopener noreferrer" target="_blank"><b>Hexo</b></a>&emsp;|&emsp;Theme — <a href="https://theme-next.org" rel="external nofollow noopener noreferrer" target="_blank"><b>NexT</b></a></div></div></footer><div class="back-to-top"><i class="fa fa-arrow-up"></i></div></div><script type="text/javascript">"[object Function]"!==Object.prototype.toString.call(window.Promise)&&(window.Promise=null)</script><script type="text/javascript" src="//cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="//cdn.jsdelivr.net/npm/velocity-animate@1.5.1/velocity.min.js"></script><script type="text/javascript" src="//cdn.jsdelivr.net/npm/velocity-ui-pack@1.2.2/velocity.ui.min.js"></script><script type="text/javascript" src="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.pack.js"></script><script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script><script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script><script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script><script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script><script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script><script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('5');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script><script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script><script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script><script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/javascript" src="/js/src/js.cookie.js?v=6.3.0"></script><script type="text/javascript" src="/js/src/scroll-cookie.js?v=6.3.0"></script></body></html>

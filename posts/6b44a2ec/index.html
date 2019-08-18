@@ -1,0 +1,531 @@
+<!DOCTYPE html><html class="theme-next mist use-motion" lang="en"><head><meta name="generator" content="Hexo 3.8.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"><meta name="theme-color" content="#222"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link href="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css"><link href="//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"><link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0"><link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_32x32.png?v=6.3.0"><link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_16x16.png?v=6.3.0"><link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222"><script type="text/javascript" id="hexo.configurations">var NexT=window.NexT||{},CONFIG={root:"/",scheme:"Mist",version:"6.3.0",sidebar:{position:"left",display:"hide",offset:12,b2t:!1,scrollpercent:!1,onmobile:!1},fancybox:!0,fastclick:!1,lazyload:!1,tabs:!0,motion:{enable:!0,async:!1,transition:{post_block:"fadeIn",post_header:"slideDownIn",post_body:"slideDownIn",coll_header:"slideLeftIn",sidebar:"slideUpIn"}},algolia:{applicationID:"",apiKey:"",indexName:"",hits:{per_page:10},labels:{input_placeholder:"Search for Posts",hits_empty:"We didn't find any results for the search: ${query}",hits_stats:"${hits} results found in ${time} ms"}}}</script><meta name="description" content="[TOC]     文件目录 修改个人博客 删除 wordpress 的评论框 删除 文章发表日期 删除 文章中“前一篇、后一篇” 删除 文章末尾注明 删除 自豪地使用 WordPress 删除 搜索框 删除 首页导航栏 修改 导航栏到标题的距离 添加返回顶部按钮 WP 提速   插件 安装插件 插件们   SVN 使用教程(基于 SAE) SAE 上安装原生 WordPress 修改 WordP"><meta name="keywords" content="WordPress"><meta property="og:type" content="article"><meta property="og:title" content="WordPress"><meta property="og:url" content="https://blog.zsliang.me/posts/6b44a2ec/index.html"><meta property="og:site_name" content="Dodo&#39;s Blog"><meta property="og:description" content="[TOC]     文件目录 修改个人博客 删除 wordpress 的评论框 删除 文章发表日期 删除 文章中“前一篇、后一篇” 删除 文章末尾注明 删除 自豪地使用 WordPress 删除 搜索框 删除 首页导航栏 修改 导航栏到标题的距离 添加返回顶部按钮 WP 提速   插件 安装插件 插件们   SVN 使用教程(基于 SAE) SAE 上安装原生 WordPress 修改 WordP"><meta property="og:locale" content="en"><meta property="og:updated_time" content="2019-08-18T09:15:44.107Z"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="WordPress"><meta name="twitter:description" content="[TOC]     文件目录 修改个人博客 删除 wordpress 的评论框 删除 文章发表日期 删除 文章中“前一篇、后一篇” 删除 文章末尾注明 删除 自豪地使用 WordPress 删除 搜索框 删除 首页导航栏 修改 导航栏到标题的距离 添加返回顶部按钮 WP 提速   插件 安装插件 插件们   SVN 使用教程(基于 SAE) SAE 上安装原生 WordPress 修改 WordP"><link rel="alternate" href="/atom.xml" title="Dodo's Blog" type="application/atom+xml"><link rel="canonical" href="https://blog.zsliang.me/posts/6b44a2ec/"><script type="text/javascript" id="page.configurations">CONFIG.page={sidebar:""}</script><title>WordPress | Dodo's Blog</title><noscript><style type="text/css">.sidebar-inner,.use-motion .brand,.use-motion .collection-title,.use-motion .comments,.use-motion .menu-item,.use-motion .motion-element,.use-motion .pagination,.use-motion .post-block,.use-motion .post-body,.use-motion .post-header{opacity:initial}.use-motion .logo,.use-motion .site-subtitle,.use-motion .site-title{opacity:initial;top:initial}.logo-line-after i{right:initial}</style></noscript></head><body itemscope="" itemtype="http://schema.org/WebPage" lang="en"><div class="container sidebar-position-left page-post-detail"><div class="headband"></div><header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-brand-wrapper"><div class="site-meta"><div class="custom-logo-site-title"><a href="/" class="brand" rel="start"><span class="logo-line-before"><i></i></span> <span class="site-title">Dodo's Blog</span><span class="logo-line-after"><i></i></span></a></div></div><div class="site-nav-toggle"> <button aria-label="Toggle navigation bar"><span class="btn-bar"></span><span class="btn-bar"></span><span class="btn-bar"></span></button></div></div><nav class="site-nav"><ul id="menu" class="menu"><li class="menu-item menu-item-home"> <a href="/" rel="section">HOME</a></li><li class="menu-item menu-item-archives"> <a href="/archives/" rel="section">ARCHIVE</a></li><li class="menu-item menu-item-categories"> <a href="/categories/" rel="section">CATEGORY</a></li><li class="menu-item menu-item-tags"> <a href="/tags/" rel="section">TAG</a></li><li class="menu-item menu-item-rss"> <a href="/atom.xml" rel="section">RSS</a></li><li class="menu-item menu-item-search"> <a href="javascript:;" class="popup-trigger">SEARCH</a></li></ul><div class="site-search"><div class="popup search-popup local-search-popup"><div class="local-search-header clearfix"><span class="search-icon"><i class="fa fa-search"></i></span><span class="popup-btn-close"><i class="fa fa-times-circle"></i></span><div class="local-search-input-wrapper"> <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input"></div></div><div id="local-search-result"></div></div></div></nav></div></header> <a href="https://github.com/lzsdodo" class="github-corner" target="_blank" title="Follow me" aria-label="Follow me" rel="external nofollow noopener noreferrer"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#222;color:#fff;position:absolute;top:0;border:0;right:0" aria-hidden="true"><path d="M0 0 115 115 130 115 142 142 250 250 250 0Z"/><path d="M128.3 109C113.8 99.7 119 89.6 119 89.6 122 82.7 120.5 78.6 120.5 78.6 119.2 72 123.4 76.3 123.4 76.3 127.3 80.9 125.5 87.3 125.5 87.3 122.9 97.6 130.6 101.9 134.4 103.2" fill="currentColor" style="transform-origin:130px 106px" class="octo-arm"/><path d="M115 115C114.9 115.1 118.7 116.5 119.8 115.4L133.7 101.6C136.9 99.2 139.9 98.4 142.2 98.6 133.8 88 127.5 74.4 143.8 58 148.5 53.4 154 51.2 159.7 51 160.3 49.4 163.2 43.6 171.4 40.1 171.4 40.1 176.1 42.5 178.8 56.2 183.1 58.6 187.2 61.8 190.9 65.4 194.5 69 197.7 73.2 200.1 77.6 213.8 80.2 216.3 84.9 216.3 84.9 212.7 93.1 206.9 96 205.4 96.6 205.1 102.4 203 107.8 198.3 112.5 181.9 128.9 168.3 122.5 157.7 114.1 157.9 116.9 156.7 120.9 152.7 124.9L141 136.5C139.8 137.7 141.6 141.9 141.8 141.8Z" fill="currentColor" class="octo-body"/></svg></a><main id="main" class="main"><div class="main-inner"><div class="content-wrap"><div id="content" class="content"><div id="posts" class="posts-expand"><article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article"><div class="post-block"><link itemprop="mainEntityOfPage" href="https://blog.zsliang.me/posts/6b44a2ec/"><span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person"><meta itemprop="name" content="Zachary"><meta itemprop="description" content="Hello World."><meta itemprop="image" content="/images/avatar.png"></span><span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization"><meta itemprop="name" content="Dodo's Blog"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">WordPress</h1><div class="post-meta"><span class="post-time"><span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i></span> <span class="post-meta-item-text">Posted on</span> <time title="Created: 2015-01-01 00:00:00" itemprop="dateCreated datePublished" datetime="2015-01-01T00:00:00-05:00">2015-01-01</time></span> <span class="post-category"><span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-folder-o"></i></span> <span class="post-meta-item-text">In</span> <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/nil/" itemprop="url" rel="index"><span itemprop="name">nil</span></a></span></span></div></header><div class="post-body" itemprop="articleBody"><p>[TOC]</p><div class="toc"><ul><li><a href="#wen-jian-mu-lu">文件目录</a></li><li><a href="#xiu-gai-ge-ren-bo-ke">修改个人博客</a><ul><li><a href="#shan-chu-wordpress-de-ping-lun-kuang">删除 wordpress 的评论框</a></li><li><a href="#shan-chu-wen-zhang-fa-biao-ri-qi">删除 文章发表日期</a></li><li><a href="#shan-chu-wen-zhang-zhong-qian-yi-pian-hou-yi-pian">删除 文章中“前一篇、后一篇”</a></li><li><a href="#shan-chu-wen-zhang-mo-wei-zhu-ming">删除 文章末尾注明</a></li><li><a href="#shan-chu-zi-hao-di-shi-yong-wordpress">删除 自豪地使用 WordPress</a></li><li><a href="#shan-chu-sou-suo-kuang">删除 搜索框</a></li><li><a href="#shan-chu-shou-ye-dao-hang-lan">删除 首页导航栏</a></li><li><a href="#xiu-gai-dao-hang-lan-dao-biao-ti-de-ju-chi">修改 导航栏到标题的距离</a></li><li><a href="#tian-jia-fan-hui-ding-bu-an-niu">添加返回顶部按钮</a></li><li><a href="#wp-ti-su">WP 提速</a></li></ul></li><li><a href="#cha-jian">插件</a><ul><li><a href="#an-zhuang-cha-jian">安装插件</a></li><li><a href="#cha-jian-men">插件们</a></li></ul></li><li><a href="#svn-shi-yong-jiao-cheng-ji-yu-sae">SVN 使用教程(基于 SAE)</a></li><li><a href="#sae-shang-an-zhuang-yuan-sheng-wordpress">SAE 上安装原生 WordPress</a><ul><li><a href="#xiu-gai-wordpress-wen-jian">修改 WordPress 文件</a></li><li><a href="#she-zhi-sae">设置 SAE</a></li></ul></li></ul></div><hr><ul><li>Summarized by Zachary</li><li>Continuous Updates</li></ul><hr><h2><span id="wen-jian-mu-lu">文件目录</span><a href="#wen-jian-mu-lu" class="header-anchor">#</a></h2><ul><li>主题下文件<code>\theme\***</code><ol><li>分类目录模板 <code>category.php</code></li><li>作者模板 <code>author.php</code></li><li>评论 <code>comments.php</code></li><li>顶部 <code>header.php</code></li><li>底部 <code>footer.php</code></li><li>模板函数 <code>functions.php</code></li><li>首页模板 <code>index.php</code></li><li>页面模板 <code>page.php</code></li><li>搜索框、搜索结果 <code>searchform.php</code> &amp; <code>search.php</code></li><li>边栏 <code>sidebar.php</code></li><li>文章页面 <code>single.php</code></li><li>标签模板 <code>tag.php</code></li><li>样式表 <code>style.css</code></li><li>可视化编辑器样式表 <code>editor-style.css</code></li></ol></li></ul><hr><h2><span id="xiu-gai-ge-ren-bo-ke">修改个人博客</span> <a href="#xiu-gai-ge-ren-bo-ke" class="header-anchor">#</a></h2><h3> <span id="shan-chu-wordpress-de-ping-lun-kuang">删除 wordpress 的评论框</span><a href="#shan-chu-wordpress-de-ping-lun-kuang" class="header-anchor">#</a></h3><ul><li>路径：<code>wp-content\themes\XXX\comments.php</code></li><li>操作：注释 <code>&lt;p class=&quot;nocomments&quot;&gt;......&lt;/p&gt;</code></li></ul><h3><span id="shan-chu-wen-zhang-fa-biao-ri-qi">删除 文章发表日期</span><a href="#shan-chu-wen-zhang-fa-biao-ri-qi" class="header-anchor">#</a></h3><ul><li>路径：<code>content-single.php</code></li><li>操作：注释 <code>&lt;div class=&quot;entry-meta&quot;&gt;......&lt;/div&gt;</code></li></ul><h3><span id="shan-chu-wen-zhang-zhong-qian-yi-pian-hou-yi-pian">删除 文章中“前一篇、后一篇”</span><a href="#shan-chu-wen-zhang-zhong-qian-yi-pian-hou-yi-pian" class="header-anchor">#</a></h3><ul><li>路径： <code>single.php</code></li><li>操作：注释 <code>&lt;nav id=&quot;nav-single&quot;&gt;......&lt;/nav&gt;</code></li></ul><h3><span id="shan-chu-wen-zhang-mo-wei-zhu-ming">删除 文章末尾注明</span><a href="#shan-chu-wen-zhang-mo-wei-zhu-ming" class="header-anchor">#</a></h3><ul><li>路径：<code>content-single.php</code></li><li>操作：注释 <code>&lt;footer class=&quot;entry-meta&quot;&gt;......&lt;/footer&gt;</code></li></ul><h3><span id="shan-chu-zi-hao-di-shi-yong-wordpress">删除 自豪地使用 WordPress</span><a href="#shan-chu-zi-hao-di-shi-yong-wordpress" class="header-anchor">#</a></h3><ul><li>路径：<code></code>wp-content\themes\XXX\footer.php`</li><li>操作：修改 <code>&lt;div id=&quot;site-generator&quot;&gt;......&lt;/div&gt;</code></li></ul><h3><span id="shan-chu-sou-suo-kuang">删除 搜索框</span><a href="#shan-chu-sou-suo-kuang" class="header-anchor">#</a></h3><ul><li>路径： <code>searchform.php</code></li><li>操作：注释 <code>该文件内容</code></li></ul><h3><span id="shan-chu-shou-ye-dao-hang-lan">删除 首页导航栏</span><a href="#shan-chu-shou-ye-dao-hang-lan" class="header-anchor">#</a></h3><ul><li>路径：<code>header.php</code></li><li>操作：注释 <code>&lt;nav id=&quot;access&quot; role=&quot;navigation&quot;&gt;......&lt;/nav&gt;</code></li></ul><h3><span id="xiu-gai-dao-hang-lan-dao-biao-ti-de-ju-chi">修改 导航栏到标题的距离</span><a href="#xiu-gai-dao-hang-lan-dao-biao-ti-de-ju-chi" class="header-anchor">#</a></h3><ul><li>路径：<code>style.css</code></li><li>操作：修改 <code>#site-description</code> 中的 margin 即可。</li></ul><h3><span id="tian-jia-fan-hui-ding-bu-an-niu">添加返回顶部按钮</span><a href="#tian-jia-fan-hui-ding-bu-an-niu" class="header-anchor">#</a></h3><ul><li>路径：<code>wp-content\themes\XXX\xxx</code> ，<code>wp-content\themes\XXX\images</code></li><li>操作：xxx 下分别添加以下代码， images 下加入图片</li><li><p><code>style.css</code></p><pre><code>// 返回顶部样式    
+#gotop{
+    width:49px;
+    height:49px;
+    position:fixed;
+    bottom:20px;
+    right:10px;
+    top:auto;
+    display:block;
+    cursor:pointer;
+    background: url(myimages/top.gif) no-repeat
+}
+*html #gotop{
+    position:absolute;
+    bottom:auto; top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10)||0)));
+}
+// 返回顶部样式结束
+</code></pre></li><li><p><code>footer.php</code></p><pre><code>&lt;!-- 返回顶部 --&gt;
+&lt;div style=&quot;display: none;&quot; id=&quot;gotop&quot;&gt;&lt;/div&gt;
+&lt;script type=&apos;text/javascript&apos;&gt;
+    backTop=function (btnId){var btn=document.getElementById(btnId);
+    var d=document.documentElement;
+    var b=document.body;
+    window.onscroll=set;
+    btn.onclick=function (){
+            btn.style.display=&quot;none&quot;;
+            window.onscroll=null;
+            this.timer=setInterval(function(){d.scrollTop-=Math.ceil((d.scrollTop+b.scrollTop)*0.1);
+                b.scrollTop-=Math.ceil((d.scrollTop+b.scrollTop)*0.1);
+            if((d.scrollTop+b.scrollTop)==0) clearInterval(btn.timer,window.onscroll=set);
+        },10);
+    };
+    function set(){btn.style.display=(d.scrollTop+b.scrollTop&gt;100)?&apos;block&apos;:&quot;none&quot;}
+};
+backTop(&apos;gotop&apos;);
+&lt;/script&gt;
+&lt;!-- 返回顶部 END --&gt;
+</code></pre></li></ul><h3><span id="wp-ti-su">WP 提速</span><a href="#wp-ti-su" class="header-anchor">#</a></h3><ol><li>取消谷歌 Open sans 字体加载<ul><li>路径：<code>/wp-includes/script-loader.php</code></li><li>操作： 注释语句 <code>//fonts.googleapis.com/…</code> 或替换成 <code>fonts.useso.com</code></li></ul></li><li>数据库缓存文件负担<ul><li>删除修订版本，不让修订版本添加到数据中心。</li><li>路径：<code>wp-config.php</code></li><li>操作：添加 <code>define(&#39;WP_POST_REVISIONS&#39;, false);</code></li></ul></li><li><p>清理 HEAD 头部多余脚本</p><ul><li>路径：<code>\wp-content\themes\twentyfifteen\functions.php</code></li><li><p>操作：添加以下脚本</p><pre><code>remove_action(&apos;wp_head&apos;, &apos;feed_links_extra&apos;, 3); // 去除评论 feed
+remove_action(&apos;wp_head&apos;, &apos;feed_links&apos;, 2); // 去除文章 feed
+remove_action(&apos;wp_head&apos;, &apos;rsd_link&apos;); // 针对 Blog 的远程离线编辑器接口
+remove_action(&apos;wp_head&apos;, &apos;wlwmanifest_link&apos;); //Windows Live Writer 接口
+remove_action(&apos;wp_head&apos;, &apos;index_rel_link&apos;); // 移除当前页面的索引
+remove_action(&apos;wp_head&apos;, &apos;parent_post_rel_link&apos;, 10, 0); // 移除后面文章的 url
+remove_action(&apos;wp_head&apos;, &apos;start_post_rel_link&apos;, 10, 0); // 移除最开始文章的 url
+remove_action(&apos;wp_head&apos;, &apos;wp_shortlink_wp_head&apos;, 10, 0);// 自动生成的短链接
+remove_action(&apos;wp_head&apos;, &apos;adjacent_posts_rel_link&apos;, 10, 0); /// 移除相邻文章的 url
+remove_action(&apos;wp_head&apos;, &apos;wp_generator&apos;); // 移除版本号
+</code></pre></li></ul></li></ol><hr><h2><span id="cha-jian">插件</span> <a href="#cha-jian" class="header-anchor">#</a></h2><h3> <span id="an-zhuang-cha-jian">安装插件</span><a href="#an-zhuang-cha-jian" class="header-anchor">#</a></h3><ol><li>您可以使用插件浏览 / 安装器查找并安装新插件。</li><li>浏览 WordPress 插件目录来手动安装插件。</li><li>如需手动安装插件，请把插件文件上传至 /wp-content/plugins 目录，然后在此启用。</li></ol><p>### 安装插件获得所需填写的主机名(SAE)</p><ul><li>主机名：<code>w.rdc.sae.sina.com.cn</code></li><li>端口：<code>3307</code></li><li>查看方法<ol><li>进入应用管理</li><li>点击服务管理 -&gt; MYSQL</li><li>点击数据库操作 -&gt; 管理 MYSQL</li><li>MYSQL 管理页面顶部可查看主机地址及数据库名。</li></ol></li></ul><h3><span id="cha-jian-men">插件们</span><a href="#cha-jian-men" class="header-anchor">#</a></h3><ol><li>Markdown 语法支持<ul><li><a href="https://wordpress.org/plugins/jetpack/" rel="external nofollow noopener noreferrer" target="_blank">Jetpack 3.6.1</a>，（markdown-on-save.1.2.1 已停止更新并入 jetpack ）</li></ul></li><li>代码高亮<ul><li><a href="https://wordpress.org/plugins/crayon-syntax-highlighter/" rel="external nofollow noopener noreferrer" target="_blank">Crayon Syntax Highlighter 2.7.1</a>（与 Jetpack 完全兼容）</li><li>设置中不要勾选“捕获 <code>反引号</code> 为 标签”，以防和 Jetpack 插件冲突。</li></ul></li><li>拦截垃圾评论<ul><li><a href="https://wordpress.org/plugins/akismet/" rel="external nofollow noopener noreferrer" target="_blank">Akismet 3.1.3</a></li></ul></li><li>数据备份<ul><li><a href="https://wordpress.org/plugins/wp-db-backup/" rel="external nofollow noopener noreferrer" target="_blank">WordPress Database Backup 2.3.0</a></li></ul></li><li>WordPress 移动主题插件<ul><li><a href="https://wordpress.org/plugins/wptouch/" rel="external nofollow noopener noreferrer" target="_blank">Wptouch Mobile Plugin v3.34 汉化版</a></li></ul></li><li>音乐播放插件<ul><li><a href="https://wordpress.org/plugins/wp-player/" rel="external nofollow noopener noreferrer" target="_blank">wp-player</a></li><li>完美支持 IE6+，FireFox，Chrome 等现代浏览器，将调用虾米网专辑歌曲至 WordPress</li></ul></li><li>文章阅读次数统计插件<ul><li><a href="https://wordpress.org/plugins/wp-postviews/" rel="external nofollow noopener noreferrer" target="_blank">wp-postviews</a></li></ul></li><li>缓存提速插件（需要写入权限 SAE 无法使用）<ul><li><a href="https://wordpress.org/plugins/wp-super-cache/" rel="external nofollow noopener noreferrer" target="_blank">wp-super-cache</a></li></ul></li><li>数据库优化插件<ul><li><a href="https://wordpress.org/plugins/wp-optimize/" rel="external nofollow noopener noreferrer" target="_blank">wp-optimize</a></li></ul></li><li>SEO 插件<ul><li><a href="https://wordpress.org/plugins/all-in-one-seo-pack/" rel="external nofollow noopener noreferrer" target="_blank">All in One SEO Pack</a></li></ul></li></ol><hr><h2><span id="svn-shi-yong-jiao-cheng-ji-yu-sae">SVN 使用教程(基于 SAE)</span><a href="#svn-shi-yong-jiao-cheng-ji-yu-sae" class="header-anchor">#</a></h2><ul><li><a href="http://www.cnblogs.com/txw1958/archive/2012/08/27/svn-tutorial.html" rel="external nofollow noopener noreferrer" target="_blank">http://www.cnblogs.com/txw1958/archive/2012/08/27/svn-tutorial.html</a></li></ul><hr><h2><span id="sae-shang-an-zhuang-yuan-sheng-wordpress">SAE 上安装原生 WordPress</span><a href="#sae-shang-an-zhuang-yuan-sheng-wordpress" class="header-anchor">#</a></h2><h3><span id="xiu-gai-wordpress-wen-jian">修改 WordPress 文件</span><a href="#xiu-gai-wordpress-wen-jian" class="header-anchor">#</a></h3><ol><li><p>SAE 是没有写权限，添加 / 修改 <code>wp-config.php</code> 文件</p><pre><code>&lt;?php
+/**
+ * WordPress 基础配置文件。
+ *
+ * 本文件包含以下配置选项: MySQL 设置、数据库表名前缀、
+ * 密匙、WordPress 语言设定以及 ABSPATH。如需更多信息，请访问
+ * {@link http://codex.wordpress.org/Editing_wp-config.php 编辑
+ * wp-config.php} Codex 页面。MySQL 设置具体信息请咨询您的空间提供商。
+ *
+ * 这个文件用在于安装程序自动生成 wp-config.php 配置文件，
+ * 您可以手动复制这个文件，并重命名为 wp-config.php，然后输入相关信息。
+ *
+ * @Author Elmer Zhang &lt;freeboy6716@gmail.com&gt;
+ * @package WordPress
+ */
+
+// ** MySQL 设置 - 具体信息来自您正在使用的主机 ** //
+/** WordPress 数据库的名称 */
+define(&apos;DB_NAME&apos;, SAE_MYSQL_DB);
+/** MySQL 数据库用户名 */
+define(&apos;DB_USER&apos;, SAE_MYSQL_USER);
+/** MySQL 数据库密码 */
+define(&apos;DB_PASSWORD&apos;, SAE_MYSQL_PASS);
+/** MySQL 主机 */
+define(&apos;DB_HOST&apos;, SAE_MYSQL_HOST_M.&apos;:&apos;.SAE_MYSQL_PORT);
+/** 创建数据表时默认的文字编码 */
+define(&apos;DB_CHARSET&apos;, &apos;utf8&apos;);
+/** 数据库整理类型。如不确定请勿更改 */
+define(&apos;DB_COLLATE&apos;, &apos;&apos;);
+define(&apos;WP_USE_MULTIPLE_DB&apos;, true);
+// 请把这里的 wordpress 修改为你的 Storage 域名
+/** SAE Storage Domain 名称 */
+define(&apos;SAE_STORAGE&apos;, &apos;wordpress&apos;);
+/** 文件上传路径 */
+define(&apos;SAE_DIR&apos;, &apos;saestor://&apos;.SAE_STORAGE.&apos;/uploads&apos;);
+define(&apos;SAE_URL&apos;,&apos;http://&apos;.$_SERVER[&apos;HTTP_APPNAME&apos;].&apos;-&apos;.SAE_STORAGE.&apos;.stor.sinaapp.com/uploads&apos;);
+
+$db_list = array(
+        &apos;write&apos;=&gt; array(
+            array(
+                &apos;db_host&apos; =&gt; SAE_MYSQL_HOST_M.&apos;:&apos;.SAE_MYSQL_PORT,
+                &apos;db_user&apos;=&gt; SAE_MYSQL_USER,
+                &apos;db_password&apos;=&gt; SAE_MYSQL_PASS,
+                &apos;db_name&apos;=&gt; SAE_MYSQL_DB,
+                &apos;db_charset&apos;=&gt; &apos;utf8&apos;
+                )
+            ),
+        &apos;read&apos;=&gt; array(
+            array(
+                &apos;db_host&apos; =&gt; SAE_MYSQL_HOST_S.&apos;:&apos;.SAE_MYSQL_PORT,
+                &apos;db_user&apos;=&gt; SAE_MYSQL_USER,
+                &apos;db_password&apos;=&gt; SAE_MYSQL_PASS,
+                &apos;db_name&apos;=&gt; SAE_MYSQL_DB,
+                &apos;db_charset&apos;=&gt; &apos;utf8&apos;
+                )
+            ),
+        );
+$global_db_list = $db_list[&apos;write&apos;];
+
+/**#@+
+ * 身份密匙设定。
+ *
+ * 您可以随意写一些字符
+ * 或者直接访问 {@link https://api.wordpress.org/secret-key/1.1/salt/ WordPress.org 私钥生成服务}，
+ * 任何修改都会导致 cookie 失效，所有用户必须重新登录。
+ *
+ * @since 2.6.0
+ */
+define(&apos;AUTH_KEY&apos;,         hash_hmac(&apos;sha1&apos;, SAE_ACCESSKEY . &apos;AUTH_KEY&apos;, SAE_SECRETKEY));
+define(&apos;SECURE_AUTH_KEY&apos;,  hash_hmac(&apos;sha1&apos;, SAE_ACCESSKEY . &apos;SECURE_AUTH_KEY&apos;, SAE_SECRETKEY));
+define(&apos;LOGGED_IN_KEY&apos;,    hash_hmac(&apos;sha1&apos;, SAE_ACCESSKEY . &apos;LOGGED_IN_KEY&apos;, SAE_SECRETKEY));
+define(&apos;NONCE_KEY&apos;,        hash_hmac(&apos;sha1&apos;, SAE_ACCESSKEY . &apos;NONCE_KEY&apos;, SAE_SECRETKEY));
+define(&apos;AUTH_SALT&apos;,        hash_hmac(&apos;sha1&apos;, SAE_ACCESSKEY . &apos;AUTH_SALT&apos;, SAE_SECRETKEY));
+define(&apos;SECURE_AUTH_SALT&apos;, hash_hmac(&apos;sha1&apos;, SAE_ACCESSKEY . &apos;SECURE_AUTH_SALT&apos;, SAE_SECRETKEY));
+define(&apos;LOGGED_IN_SALT&apos;,   hash_hmac(&apos;sha1&apos;, SAE_ACCESSKEY . &apos;LOGGED_IN_SALT&apos;, SAE_SECRETKEY));
+define(&apos;NONCE_SALT&apos;,       hash_hmac(&apos;sha1&apos;, SAE_ACCESSKEY . &apos;NONCE_SALT&apos;, SAE_SECRETKEY));
+
+/**#@-*/
+
+/**
+ * WordPress 数据表前缀。
+ *
+ * 如果您有在同一数据库内安装多个 WordPress 的需求，请为每个 WordPress 设置不同的数据表前缀。
+ * 前缀名只能为数字、字母加下划线。
+ */
+$table_prefix  = &apos;wp_&apos;;
+
+/**
+ * WordPress 语言设置，默认为英语。
+ *
+ * 本项设定能够让 WordPress 显示您需要的语言。
+ * wp-content/languages 内应放置同名的 .mo 语言文件。
+ * 要使用 WordPress 简体中文界面，只需填入 zh_CN。
+ */
+define (&apos;WPLANG&apos;, &apos;zh_CN&apos;);
+
+/**
+ * 开发者专用：WordPress 调试模式。
+ *
+ * 将这个值改为“true”，WordPress 将显示所有开发过程中的提示。
+ * 强烈建议插件开发者在开发环境中启用本功能。
+ */
+define(&apos;WP_DEBUG&apos;, false);
+define(&apos;WP_ZH_CN_ICP_NUM&apos;, true);
+
+/* 好了！请不要再继续编辑。请保存该文件。 */
+
+/** WordPress 目录的绝对路径。 */
+if (!defined(&apos;ABSPATH&apos;) )
+    define(&apos;ABSPATH&apos;, dirname(__FILE__) . &apos;/&apos;);
+
+/** 设置 WordPress 变量和包含文件。 */
+require_once(ABSPATH . &apos;wp-settings.php&apos;);
+</code></pre></li><li><p>根目录新建一个 <code>config.yaml</code></p><ul><li><p>复制以下内容</p><pre><code>handle: 
+    - rewrite:if (!is_file() &amp;&amp; !is_dir() &amp;&amp; path ~ &quot;^/(.*)&quot;) goto &quot;index.php/$1&quot;
+</code></pre></li></ul></li><li><p>附件 / 图片无法上传修正，SAE 提供了一个 Storage 来上传附件，修改 <code>wp-includes/functions.php</code> 文件</p><ol><li><p>注释掉以下代码：</p><pre><code>$wrapper = null;
+
+//Strip the protocol.
+if(wp_is_stream( $target) ) {list( $wrapper, $target) = explode(&apos;://&apos;, $target, 2);
+}
+
+// From php.net/mkdir user contributed notes.
+$target = str_replace(&apos;//&apos;, &apos;/&apos;, $target);
+
+// Put the wrapper back on the target.
+if($wrapper !== null) {$target = $wrapper . &apos;://&apos; . $target;}
+</code></pre></li><li><p>替换为：</p><pre><code>//For Sina SAE
+if (substr($target, 0, 10) == &apos;saestor://&apos; ) {return true;}
+$target = str_replace(&apos;//&apos;, &apos;/&apos;, $target);
+</code></pre></li><li><p>在 <code>$basedir = $dir; $baseurl = $url;</code> 顶上添加如下代码：</p><pre><code>//For Sina SAE
+$dir = SAE_DIR;
+$url = SAE_URL;
+</code></pre></li><li><p>在 <code>send_frame_options_header()</code> 方法上添加以下代码：</p><pre><code>//For Sina SAE
+if (!function_exists(&apos;utf8_encode&apos;) ) {function utf8_encode($str) {$encoding_in = mb_detect_encoding($str);
+        return mb_convert_encoding($str, &apos;UTF-8&apos;, $encoding_in);
+    }
+}
+</code></pre></li></ol></li><li><p>屏蔽 WordPress 权限检查 1，修改 <code>wp-admin/includes/file.php</code> 文件</p><ul><li><p>注释掉以下代码：</p><pre><code>//For Sina SAE
+// Set correct file permissions
+$stat = stat(dirname( $new_file));
+$perms = $stat[&apos;mode&apos;] &amp; 0000666;
+@ chmod($new_file, $perms);
+</code></pre></li></ul></li><li><p>屏蔽 WordPress 权限检查 2，修改 <code>wp-includes/class-wp-image-editor-gd.php</code> 文件</p><ul><li><p>注释掉以下代码：</p><pre><code>//For Sina SAE
+$stat = stat(dirname( $filename) );
+$perms = $stat[&apos;mode&apos;] &amp; 0000666; //same permissions as parent folder, strip off the executable bits
+@ chmod($filename, $perms);
+</code></pre></li></ul></li><li><p>禁用 WordPress 自动更新，修改 <code>wp-include/update.php</code> 文件</p><ul><li><p>移到底部会发现一大串 <code>add_action(....)</code>，保留以下两行代码，其他全部删除</p><pre><code>add_action(&apos;load-update-core.php&apos;, &apos;wp_version_check&apos;);
+add_action(&apos;load-update-core.php&apos;, &apos;wp_update_themes&apos;);
+</code></pre></li><li><p>文件尾部再加入一句</p><pre><code>add_action(&apos;load-update-core.php&apos;, &apos;wp_update_plugins&apos;);
+</code></pre></li></ul></li></ol><h3><span id="she-zhi-sae">设置 SAE</span><a href="#she-zhi-sae" class="header-anchor">#</a></h3><ol><li>登录 SAE 后点击 <code>应用</code> –&gt; <code>创建新应用</code> –&gt; 填入 <code>二级域名</code> 、 <code>应用名称</code> 、 <code>应用描述</code> 等信息。</li><li>初始化以下三项：<ol><li><code>我的应用</code> –&gt; <code>服务管理</code> –&gt; <code>MySQL</code> –&gt; <code>初始化 MySQL</code></li><li><code>Storage</code> –&gt; <code>新建一个 domain</code> –&gt; <code>Domain Name</code> 输入 <code>wordpress</code> –&gt; <code>创建</code></li><li><code>Memcache</code> –&gt; <code>初始化 MC</code> –&gt; <code>配额</code> 设为<code>12M</code></li></ol></li><li><code>代码管理</code> –&gt; <code>创建一个版本</code> -&gt; 输入版本号<code>1</code> 并设置为默认版本。</li><li><code>SVN checkout</code> 当前应用代码 -&gt; 下载 <code>wordpress</code> -&gt; 解压到 <code>checkout</code> 的目录下 -&gt; 代码用 svn 上传并安装。</li><li>安装时候会提醒说没有 <code>wp-config.php</code> 这个文件，点击向导中的创建！</li><li>填入安装信息，这里需要注意：<ol><li><code>mysql</code> 的 <code>用户名</code>：你的应用的 <code>accesskey</code></li><li><code>mysql</code> 的 <code>密码</code>：你的应用的 <code>secretkey</code></li><li><code>数据库名</code>：app_应用名</li><li><code>主机域名</code>：<code>w.rdc.sae.sina.com.cn:3307</code></li><li>下一步会提醒没有权限创建 <code>wp-confing.php</code> 这个文件，安装提示拷贝那些生成的代码，然后在 svn 上面创建 <code>wp-config.php</code> 这个文件，贴上那些代码保存！</li></ol></li><li>用 svn 提交文件，配置后 wp 进入后台，安装主题、插件，神马的都有！</li></ol><hr><p><br \=""><strong>Author:&nbsp;Zachary</strong><br \=""><strong>Post link:&nbsp;</strong> <a href="https://blog.zsliang.me/posts/6b44a2ec/">https://blog.zsliang.me/posts/6b44a2ec/</a><br \=""><strong>Copyright:&nbsp;</strong>All articles in this blog are licensed under <a target="_blank" rel="external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><b>CC BY-NC-SA 4.0</b></a> unless stating additionally.<br \=""></p></div><footer class="post-footer"><div class="post-tags"> <a href="/tags/WordPress/" rel="tag"># WordPress</a></div><div class="post-nav"><div class="post-nav-next post-nav-item"><a href="/posts/6fc8eab5/" rel="next" title="Markdown"><i class="fa fa-chevron-left"></i> Markdown</a></div><span class="post-nav-divider"></span><div class="post-nav-prev post-nav-item"> <a href="/posts/d9d613a7/" rel="prev" title="新经济形势下的战略与商业模式">新经济形势下的战略与商业模式<i class="fa fa-chevron-right"></i></a></div></div></footer></div></article><div class="post-spread"></div></div></div></div><div class="sidebar-toggle"><div class="sidebar-toggle-line-wrap"><span class="sidebar-toggle-line sidebar-toggle-line-first"></span><span class="sidebar-toggle-line sidebar-toggle-line-middle"></span><span class="sidebar-toggle-line sidebar-toggle-line-last"></span></div></div><aside id="sidebar" class="sidebar"><div class="sidebar-inner"><ul class="sidebar-nav motion-element"><li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap"> Table of Contents</li></ul><section class="site-overview-wrap sidebar-panel"><div class="site-overview"></div></section><section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active"><div class="post-toc"><div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">文件目录#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">修改个人博客 #</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.</span> <span class="nav-text">删除 wordpress 的评论框#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.</span> <span class="nav-text">删除 文章发表日期#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.3.</span> <span class="nav-text">删除 文章中“前一篇、后一篇”#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.4.</span> <span class="nav-text">删除 文章末尾注明#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.5.</span> <span class="nav-text">删除 自豪地使用 WordPress#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.6.</span> <span class="nav-text">删除 搜索框#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.7.</span> <span class="nav-text">删除 首页导航栏#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.8.</span> <span class="nav-text">修改 导航栏到标题的距离#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.9.</span> <span class="nav-text">添加返回顶部按钮#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.10.</span> <span class="nav-text">WP 提速#</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">插件 #</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.1.</span> <span class="nav-text">安装插件#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.2.</span> <span class="nav-text">插件们#</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">SVN 使用教程(基于 SAE)#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">SAE 上安装原生 WordPress#</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">5.1.</span> <span class="nav-text">修改 WordPress 文件#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">5.2.</span> <span class="nav-text">设置 SAE#</span></a></li></ol></li></ol></div></div></section></div></aside></div></main><footer id="footer" class="footer"><div class="footer-inner"><div class="copyright">&copy; 1969 &mdash; <span itemprop="copyrightYear">2019</span><span class="with-love" id="animate"><i class="fa fa-heart"></i></span> <span class="author" itemprop="copyrightHolder"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://en.wikipedia.org/wiki/Internet"><b>Internet</b></a></span></div><div class="footer-custom">Hosted by <a target="_blank" rel="external nofollow" href="https://zsliang.me"><b>Curiosity</b></a>&emsp;|&emsp;Powered by <a href="https://hexo.io" rel="external nofollow noopener noreferrer" target="_blank"><b>Hexo</b></a>&emsp;|&emsp;Theme — <a href="https://theme-next.org" rel="external nofollow noopener noreferrer" target="_blank"><b>NexT</b></a></div></div></footer><div class="back-to-top"><i class="fa fa-arrow-up"></i></div></div><script type="text/javascript">"[object Function]"!==Object.prototype.toString.call(window.Promise)&&(window.Promise=null)</script><script type="text/javascript" src="//cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="//cdn.jsdelivr.net/npm/velocity-animate@1.5.1/velocity.min.js"></script><script type="text/javascript" src="//cdn.jsdelivr.net/npm/velocity-ui-pack@1.2.2/velocity.ui.min.js"></script><script type="text/javascript" src="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.pack.js"></script><script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script><script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script><script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script><script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script><script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script><script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('5');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script><script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script><script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script><script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/javascript" src="/js/src/js.cookie.js?v=6.3.0"></script><script type="text/javascript" src="/js/src/scroll-cookie.js?v=6.3.0"></script></body></html>
