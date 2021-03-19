@@ -3,6 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "test": "hexo clean && hexo g && gulp && hexo s",
+    "publish": "hexo clean && hexo g && gulp && hexo d",
     "build": "hexo generate",
     "clean": "hexo clean",
     "deploy": "hexo deploy",
