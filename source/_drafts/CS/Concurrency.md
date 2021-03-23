@@ -1,14 +1,12 @@
 ---
-abbrlink: 
+abbrlink:
 title: Concurrency
 categories: CS
 tags: [Concurrency]
 date: 2019-04-23 12:00:00
 ---
 
-> Concurrency
-
-[TOC]
+## Table of Content
 <!-- toc -->
 
 ---

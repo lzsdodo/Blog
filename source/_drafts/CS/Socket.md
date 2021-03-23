@@ -1,12 +1,12 @@
 ---
-abbrlink: 
+abbrlink:
 title: Socket
 categories: CS
 tags: [Socket]
 date: 2019-01-01 00:00:00
 ---
 
-[TOC]
+## Table of Content
 <!-- toc -->
 
 ---
@@ -34,7 +34,7 @@ date: 2019-01-01 00:00:00
         - Closing: C: `FIN`; S: `ACK`; S: `FIN`; C: `ACK`;
 
 - Each socket maintaining 2 queue
-    - A queue of connected client which is at the 
+    - A queue of connected client which is at the
 
 - Communication between 2 process
     - We need to find out the other process

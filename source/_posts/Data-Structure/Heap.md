@@ -1,5 +1,5 @@
 ---
-abbrlink: 
+abbrlink: 1d1b8ddf
 title: Heap
 categories: Data Structure
 tags:
@@ -8,7 +8,7 @@ tags:
 date: 2019-01-01 00:00:00
 ---
 
-[TOC]
+## Table of Content
 <!-- toc -->
 
 ---

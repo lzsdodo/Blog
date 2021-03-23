@@ -2,13 +2,13 @@
 abbrlink: cf581b8c
 title: Binary Search Algorithm
 categories: Algo
-tags: 
+tags:
   - Algo
   - Binary Search
 date: 2019-01-01 00:00:00
 ---
 
-[TOC]
+## Table of Content
 <!-- toc -->
 
 ---
@@ -31,7 +31,7 @@ date: 2019-01-01 00:00:00
     - Iteration: `O(1)`
 
 - Attention
-    - Stop condition 
+    - Stop condition
     - How to update lower & upper bound (`low` & `high`)
     - How to choose the return value (`mid`)
 
@@ -43,7 +43,7 @@ date: 2019-01-01 00:00:00
 2. Bounded 存在上下界
 3. Accessible by index 可通过索引访问
     - Fit for array not linked list
-4. Not suitable for dataset which is too small or too big 
+4. Not suitable for dataset which is too small or too big
     - Too small, the performance is similar
     - Too big, the data is not stored consequently
 
@@ -89,8 +89,8 @@ date: 2019-01-01 00:00:00
 
         if (arr[mid] < target)
             return bsearch(arr, mid + 1, end, data);
-        
-        return mid;  
+
+        return mid;
     }
     ```
 
@@ -116,7 +116,7 @@ date: 2019-01-01 00:00:00
                 // Equal, first of arr || first of repeated target
                 if ((mid == start) || (nums[mid - 1] != target))
                     return mid;
-                
+
                 // left = mid + 1;
                 // Equal, last of arr || last of repeated target
                 // if ((mid == end) || (nums[mid + 1] != target))
@@ -126,7 +126,7 @@ date: 2019-01-01 00:00:00
         return -1;
     }
     ```
-    
+
 2. Find the **first number `>= target` / last number `<= target`**
 
     ```java

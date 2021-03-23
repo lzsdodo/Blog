@@ -8,7 +8,7 @@ tags:
 date: 2019-01-01 00:00:00
 ---
 
-[TOC]
+## Table of Content
 <!-- toc -->
 
 ---
@@ -35,17 +35,17 @@ date: 2019-01-01 00:00:00
         private int data;
         private Node left;
         private Node right;
- 
+
         public Node(int data) {
             this.data = data;
         }
-    } 
+    }
     ```
 
 - Find operation
     - T: `O(logn)`
 
-    ```java 
+    ```java
     public Node find(Node root, Node target) {
         return find(root, target.val);
     }
@@ -77,7 +77,7 @@ date: 2019-01-01 00:00:00
         Node father = null;
 
         while (node != null) {
-            if (node.val == data) 
+            if (node.val == data)
                 return father;
 
             father = node;
@@ -95,7 +95,7 @@ date: 2019-01-01 00:00:00
 - Insert operation
     - Usually we insert new data on a leaf node.
     - If new data is bigger than node's data.
-        1. The node has no right child, insert to its right child's position. 
+        1. The node has no right child, insert to its right child's position.
         2. Recursively find the position in the node's right subtree.
     - If new data is smaller than node's data, similar to the instructions above.
 
@@ -105,7 +105,7 @@ date: 2019-01-01 00:00:00
             root = new Node(data);
             return;
         }
-        
+
         Node node = root;
         while (node != null) {
             if (data > node.data) {
@@ -138,7 +138,7 @@ date: 2019-01-01 00:00:00
 
     ```java
     public void delete(Node root, int data) {
-        Node node   = root; 
+        Node node   = root;
         Node father = null;
 
         // Find position
@@ -180,7 +180,7 @@ date: 2019-01-01 00:00:00
         } else { // father.right == node
             father.right = child;
         }
-         
+
     }
     ```
 
@@ -231,7 +231,7 @@ date: 2019-01-01 00:00:00
             ```
 
         3. Find left side father node
-            
+
             ```
                  o(pred)
                   \
@@ -247,7 +247,7 @@ date: 2019-01-01 00:00:00
     ```java
     public Node findPredecessor(Node root, Node target) {
         Node node = find(root, target);
-        
+
         if (node.left != null) return findMax(node.left);
 
         TreeNode father = findFather(root, node);
@@ -352,11 +352,11 @@ date: 2019-01-01 00:00:00
 
 ## BST Variants
 
-### Red-black tree 
+### Red-black tree
 
 > Balanced BST
 
-### B+ Tree 
+### B+ Tree
 
 > Support outputing in range
 

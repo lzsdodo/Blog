@@ -6,7 +6,7 @@ tags: [XMR, Mining]
 date: 2018-06-20 00:00:00
 ---
 
-[TOC]
+## Table of Content
 <!-- toc -->
 
 ---
@@ -34,7 +34,7 @@ date: 2018-06-20 00:00:00
     ```sh
     brew install hwloc libmicrohttpd gcc openssl cmake
     # For NVIDIA GPUs
-    brew cask install nvidia-cuda 
+    brew cask install nvidia-cuda
     ```
 
 ## Download xmr-stak
@@ -50,7 +50,7 @@ date: 2018-06-20 00:00:00
 ```bash
 vi ./xmrstak/donate-level.hpp
 # Default: 2.0 / 100.0 = 2%
-constexpr double fDevDonationLevel = yourDonatedRate / 100.0; 
+constexpr double fDevDonationLevel = yourDonatedRate / 100.0;
 ```
 
 ## Compile
@@ -105,7 +105,7 @@ chmod +x ./xmr-stak
         - Canada `ca.minexmr.com` is the fastest server in my test
 
     - Mining ports
-        - `4444`, `5555` for `Low range CPU/GPU` with starting difficulty `15000` 
+        - `4444`, `5555` for `Low range CPU/GPU` with starting difficulty `15000`
         - `7777`, `80` & `443` for `Mid range CPU/GPU` with starting difficulty `35000`
         - `6666` for `SSL port` with starting difficulty `35000`
         - `3333` for `Modern High End` with starting difficulty `1000000`

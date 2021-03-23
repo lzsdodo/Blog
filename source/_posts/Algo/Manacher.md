@@ -2,13 +2,13 @@
 abbrlink: c096a6bd
 title: Manacher's Algorithm
 categories: Algo
-tags: 
+tags:
   - Algo
   - Palindrome
 date: 2019-01-01 00:00:00
 ---
 
-[TOC]
+## Table of Content
 <!-- toc -->
 
 ---
@@ -24,7 +24,7 @@ date: 2019-01-01 00:00:00
 
     - e.g. transform s into t
 
-        ```
+        ```txt
         e.g. "ababa"
         ->   s:   a b a b a
         ->   t: ^~a~b~a~b~a~$
@@ -59,13 +59,13 @@ date: 2019-01-01 00:00:00
 
     - e.g.
 
-        ```
+        ```txt
         e.g.: "abaaba" -> "^~a~b~a~a~b~a~$"
                     a   b   a   a   b   a
                 ^ ~ a ~ b ~ a ~ a ~ b ~ a ~ $
         index: [0 1 2 3 4 5 6 7 8 9 . . . . .]
         pr[i]: [1 1 2 1 4 1 2 7 2 1 4 1 2 1 1]
-        
+
         -> i = 7, pr[7] represents: s: ~a~b~a ~ a~b~a~
                                     i: 1, .., 7, .., 13
            len radius = pr[i] - 1 = 6:         "a~b~a~"
@@ -75,16 +75,16 @@ date: 2019-01-01 00:00:00
 
     - Map to original string
 
-        ```
-        e.g.: "assa" -> "...~a~s~s~a~..." 
+        ```txt
+        e.g.: "assa" -> "...~a~s~s~a~..."
                      ->         i
                      -> "assa" + "~~~~" + "~"
 
-        e.g.: "asa"  -> "...~a~s~a~..." 
+        e.g.: "asa"  -> "...~a~s~a~..."
                      ->        i
                      -> "asa" + "~~~" + "~"
 
-        -> pr[i] = (char + "~") * 2 + "~" 
+        -> pr[i] = (char + "~") * 2 + "~"
         -> left  = (i - (pr[i] - 1)) / 2 = (i + 1 - pr[i]) / 2;
         -> right = left + pr[i] - 1;
         ```
@@ -95,12 +95,12 @@ date: 2019-01-01 00:00:00
 
     - e.g.
 
-        ```
+        ```txt
                   r      j           c           i      r
             ...---|------|-----------|-----------|------|---...
                        pr[j]'
                     |----|----|             |----|----|
-                |--------|--------|     |--------|--------|    
+                |--------|--------|     |--------|--------|
                        pr[j]
                   |------------------|-----------|------|
                                                   r - i
@@ -146,7 +146,7 @@ date: 2019-01-01 00:00:00
         - Otherwise we attempt to change the palindrome’s center to i by expanding it starting at the right edge, `r`.
         - Extending `r` (the inner while loop) takes at most a total of `n` steps, and positioning and testing each centers take a total of `n` steps too.
         - Therefore, this algorithm guarantees to finish in at most `2*n` steps, giving a linear time solution.
-    
+
     - Calculate by upper bound and lower bound
         - Worst case: characters are all the same `"aaa"`
             - Each character will be accessed **5 times** in each for loop
@@ -158,7 +158,7 @@ date: 2019-01-01 00:00:00
         - Assume character `i` compare $f(i)$ times, and the current position `r` is $(r)_{i-1}$. So the new position of `r` is $(r)_{i}$ after comparison.
         - Equation
             1. Situation 1: $i > r_{i-1}$: $f(i) = r_{i} - i$
-            2. Situation 2: $i \leq r_{i-1}$: $f(i) = r_{i} - r_{i-1}$ / $0$ 
+            2. Situation 2: $i \leq r_{i-1}$: $f(i) = r_{i} - r_{i-1}$ / $0$
             3. Total times: $f = \sum_{0}^{n-1} f(i) \leq \sum_{0}^{n-1} r_{i} - r_{i-1} = O(n)$
 
 - Space: `O(n)` for `pr[]` array

@@ -1,12 +1,12 @@
 ---
-abbrlink: 
+abbrlink:
 title: GRE Reading
 categories: nil
 tags: [GRE]
 date: 2016-01-01 00:00:00
 ---
 
-[TOC]
+## Table of Content
 <!-- toc -->
 
 ---

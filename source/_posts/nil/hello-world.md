@@ -1,5 +1,5 @@
 ---
-abbrlink: 4a17b156
+abbrlink: 19700101
 title: Hello World
 categories: nil
 tags: nil

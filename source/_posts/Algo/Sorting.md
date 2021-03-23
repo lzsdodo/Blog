@@ -8,7 +8,7 @@ tags:
 date: 2019-01-01 00:00:00
 ---
 
-[TOC]
+## Table of Content
 <!-- toc -->
 
 ---
@@ -233,7 +233,7 @@ public static void quickSort(int[] arr) {
 
 public static void quickSort(int[] arr, int start, int end) {
     if (start >= end) return;
-    
+
     int divIndex = partition(arr, start, end);
     quickSort(arr, start, divIndex - 1);
     quickSort(arr, divIndex + 1, end);
@@ -320,7 +320,7 @@ private static int findPivot(int[] arr, int low, int high) {
                 rainbowSort(colors, 0, colors.length - 1, 1, k);
             }
 
-            private void rainbowSort(int[] colors, int start, int end, 
+            private void rainbowSort(int[] colors, int start, int end,
                                      int colorFrom, int colorTo) {
 
                 if (colorFrom == colorTo) return;

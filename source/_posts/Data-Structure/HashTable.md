@@ -8,7 +8,7 @@ tags:
 date: 2019-01-01 00:00:00
 ---
 
-[TOC]
+## Table of Content
 <!-- toc -->
 
 ---
@@ -35,7 +35,7 @@ date: 2019-01-01 00:00:00
                 - Quadratic probing 二次探测
                     - `hash(key)+0，hash(key)+1^2，hash(key)+2^2, ...`
                 - Double hashing 双重散列
-                    - `hash1(key)，hash2(key)，hash3(key), ...` 
+                    - `hash1(key)，hash2(key)，hash3(key), ...`
             - The probability of hash collision will increase with the size increasing, so we use **`load factor`** to ensure there are enough space for new elements
                 - $load factor = size / capacity$
         2. **Chaining** 链表法
@@ -43,7 +43,7 @@ date: 2019-01-01 00:00:00
             - We store the elements with same value of `hash(key)` in the linked list
             - Steps to lookup the value
                 - Get bucket by `hash(key)`
-                - Traverse the linked list `node.key == key` then `return node.val` 
+                - Traverse the linked list `node.key == key` then `return node.val`
                     - In `O(k)` time, $k = n / m$, `m` is the size of the bucket, `k` is `ideal average length of the linked list` (distributed evenly)
 
 - Pros & Cons
@@ -84,8 +84,8 @@ date: 2019-01-01 00:00:00
     2. Result should be **random** and **distributed evenly**
     3. Dynamic expansion
         - Set a **threshold value** for the **load factor**
-        - Once it hits the threshold, expand the table 
-        - Move the elements to the new table 
+        - Once it hits the threshold, expand the table
+        - Move the elements to the new table
             - In equalization situation, it's still `O(1)` for insertion
             - But the problem is one-time expansion is time consuming
             - Make it inertia, just create space and move later
@@ -98,7 +98,7 @@ date: 2019-01-01 00:00:00
 - Summary
     - What features an industrial level hash table should have
         1. Support quick `lookup/insert/delete` operations
-        2. Reasonable RAM usage, do not waste too much space 
+        2. Reasonable RAM usage, do not waste too much space
         3. Stable performance, even in a extreme situation, the performance should be still acceptable
     - How to design this hash table
         1. Design a proper hash function

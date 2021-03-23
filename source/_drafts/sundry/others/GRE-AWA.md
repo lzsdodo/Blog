@@ -1,12 +1,12 @@
 ---
-abbrlink: 
+abbrlink:
 title: AWA
 categories: nil
 tags: [GRE]
 date: 2017-01-01 00:00:00
 ---
 
-[TOC]
+## Table of Content
 <!-- toc -->
 
 ---
@@ -30,16 +30,16 @@ date: 2017-01-01 00:00:00
     1. Challenge argument 挑错
     2. Discuss ways to improve the argument 改进
 
-> WHY NOT VALID !!! 
+> WHY NOT VALID !!!
 
 - Directions 答题思路
     1. Identify stated/unstated assumptions
     2. Strengthen and weaken argument
 
 - Logical Fallacies 逻辑错误
-    1. Things Change 
+    1. Things Change
         - 事情已经发生改变
-    2. Assumed Cause and Effect 
+    2. Assumed Cause and Effect
         - 假设的因果关系，无直接因果，提出反驳有可能无因果关系，不是它引起的
     3. Numbers and Percentage Assumption
         - 数字上升不代表百分比上升
@@ -64,7 +64,7 @@ date: 2017-01-01 00:00:00
         1. Keep short and sweet
         2. Don't put forward another fallacy
 
-- Boilerplate 
+- Boilerplate
     - Intro
         - The following argument is flawed for numerous reasons. Primarily, the argument is based on the unwarranted assumption that ..., rendering its main conclusion, that ..., invalid.
     - Body

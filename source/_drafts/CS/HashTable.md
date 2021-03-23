@@ -1,12 +1,12 @@
 ---
-abbrlink: 
+abbrlink:
 title: HashTable
 categories: nil
 tags: [nil]
 date: 2019-01-01 00:00:00
 ---
 
-[TOC]
+## Table of Content
 <!-- toc -->
 
 ---
@@ -26,7 +26,7 @@ date: 2019-01-01 00:00:00
     - if `key1 == key2`, then `hash(key1) == hash(key2)`
     - if `key1 != key2`, then `hash(key1) != hash(key2)`
 
-- MOD 
+- MOD
     - Coherence Theorem (同余定理) is like Classification
     - 将任意长度的输入，通过哈希算法，压缩为某一固定长度的输出
     - `f(x) = x mod size`
@@ -37,6 +37,6 @@ date: 2019-01-01 00:00:00
 
 ## Example
 
-- In Java 
+- In Java
     - default size=16
     - default 0.75 * capacity -> expension

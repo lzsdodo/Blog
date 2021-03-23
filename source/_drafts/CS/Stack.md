@@ -1,17 +1,17 @@
 ---
-abbrlink: 
+abbrlink:
 title: Stack
 categories: nil
 tags: [nil]
 date: 2019-01-01 00:00:00
 ---
 
-[TOC]
+## Table of Content
 <!-- toc -->
 
 ---
 
-# Data Structure - Stack 
+# Data Structure - Stack
 
 ## Achieved an Array based Stack
 
@@ -50,7 +50,7 @@ main()
 > 一般来说，系统会划分出两种不同的内存空间：
 > Stack 栈 & Heap 堆
 
-- Diff 
+- Diff
     - Structure
         - Stack 是有结构的，每个区块按照一定次序存放，可以明确知道每个区块的大小；
         - Heap 是没有结构的，数据可以任意存放。
@@ -72,8 +72,8 @@ main()
         - 分配效率不同，hardware optim for stack (specific register)
         * => Stack 线程独占，Heap 线程共用
 
-- Example 
-    
+- Example
+
     ```java
     public void Main() {
         int val = 4;
