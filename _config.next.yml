@@ -66,9 +66,9 @@ creative_commons:
 
 menu:
   HOME: / || fa fa-home
-  TAGS: /tags/ || fa fa-tags
-  CATEGORIES: /categories/ || fa fa-th
   ARCHIVES: /archives/ || fa fa-archive
+  CATEGORIES: /categories/ || fa fa-th
+  TAGS: /tags/ || fa fa-tags
   RSS: /atom.xml || fa fa-rss
 
 menu_settings:
