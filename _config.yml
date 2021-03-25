@@ -148,6 +148,12 @@ nofollow:
     noreferrer: true
     noopener: true
 
+# Hide Posts - hexo-hide-posts
+hide-posts:
+  filter: hidden
+  public_generators: []
+  noindex: true
+
 # Gulp minifier
 all_minifier: true
 html_minifier:
