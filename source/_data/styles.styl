@@ -1,6 +1,5 @@
 // Custom styles.
 
-
 .category-all-title {
   font-size: 2em;
 }
@@ -20,7 +19,6 @@
 //  white-space: pre-wrap;       /* css-3 */
 //}
 
-
 .posts-expand {
   padding-top: 0;
 
@@ -33,6 +31,8 @@
 
   .post { margin-top: 60px; }
   .post:first-child { margin-top: 0; }
+
+  .post-block:not(:first-child) { margin-top: 48px; }
 
   .post-meta {
     margin-top: 0;
@@ -83,4 +83,16 @@
 
     &:hover { border-bottom-color: $black-deep; }
   }
+}
+
+.wordcount {
+  display: none;
+}
+
+.posts-collapse .post-content .collection-year {
+  margin: 36px 0 12px 0;
+}
+
+.posts-collapse .post-content .post-header {
+  margin: 12px 2px;
 }
