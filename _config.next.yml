@@ -249,6 +249,8 @@ font:
 
 math:
   every_page: false
+  katex:
+    enable: true
 
 pjax: true
 
